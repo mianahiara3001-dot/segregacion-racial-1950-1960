@@ -1,0 +1,2103 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Separados pero iguales · Segregación racial en EE. UU. (1950–1969)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bgpage: '#F2F5F8',
+            ink: '#0F1E36',
+            slateink: '#475569',
+            burgundy: '#7B1E32',
+            burgundylight: '#9A2B43',
+            borderline: '#D6DEE8',
+            cardbg: '#FFFFFF',
+            tintblue: '#E6ECF2'
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      background-color: #F2F5F8;
+      color: #0F1E36;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    /* Tachado burdeos editorial sobre "iguales" */
+    .strike-burgundy {
+      position: relative;
+      display: inline-block;
+      font-style: italic;
+    }
+    .strike-burgundy::after {
+      content: '';
+      position: absolute;
+      left: -3%;
+      right: -3%;
+      top: 55%;
+      height: 4px;
+      background-color: #7B1E32;
+      border-radius: 2px;
+      transform: translateY(-50%);
+    }
+    @media (min-width: 768px) {
+      .strike-burgundy::after {
+        height: 5px;
+      }
+    }
+
+    /* Transición suave de diapositivas */
+    .slide-fade-in {
+      animation: fadeSlide 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    @keyframes fadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Desvanecimiento del extremo derecho de la barra de línea del tiempo */
+    .timeline-fade-mask {
+      mask-image: linear-gradient(to right, black 0%, black 90%, rgba(0,0,0,0.35) 100%);
+      -webkit-mask-image: linear-gradient(to right, black 0%, black 90%, rgba(0,0,0,0.35) 100%);
+    }
+
+    /* Ocultar scrollbar en tiras horizontales */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Pulso de ciudad activa en mapa SVG */
+    .city-pulse {
+      transform-origin: center;
+      transform-box: fill-box;
+      animation: mapPulse 2.2s infinite ease-out;
+    }
+    @keyframes mapPulse {
+      0% {
+        transform: scale(1);
+        opacity: 0.75;
+      }
+      100% {
+        transform: scale(2.4);
+        opacity: 0;
+      }
+    }
+
+    /* Transición de tarjeta expandible en Voces */
+    .voice-details {
+      display: grid;
+      grid-template-rows: 1fr;
+      transition: grid-template-rows 0.3s ease;
+    }
+    .voice-details.collapsed {
+      grid-template-rows: 0fr;
+    }
+    .voice-details > div {
+      overflow: hidden;
+    }
+
+    /* Animación flotante sutil para el globo/guía interactivo */
+    @keyframes gentleFloat {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+    .floating-guide-orb {
+      animation: gentleFloat 3.6s ease-in-out infinite;
+    }
+    .floating-guide-orb:hover {
+      animation-play-state: paused;
+    }
+
+    /* Despliegue suave de datos históricos en tarjetas de Contexto */
+    .context-drawer {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .context-drawer.open {
+      grid-template-rows: 1fr;
+    }
+    .context-drawer > div {
+      overflow: hidden;
+    }
+
+    /* Tiras laterales en márgenes (solo pantallas amplias) */
+    .margin-gallery-item {
+      transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .margin-gallery-item:hover {
+      transform: translateY(-2px);
+      border-color: #7B1E32;
+    }
+
+    /* Tarjeta plegable con transición suave en márgenes y archivo */
+    .foldable-photo-body {
+      display: grid;
+      grid-template-rows: 0fr;
+      opacity: 0;
+      transition: grid-template-rows 0.38s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.32s ease;
+    }
+    .foldable-photo-card.is-open .foldable-photo-body {
+      grid-template-rows: 1fr;
+      opacity: 1;
+    }
+    .foldable-photo-body > div {
+      overflow: hidden;
+    }
+    .foldable-photo-card img {
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .foldable-photo-card.is-open img {
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-burgundy selection:text-white relative">
+
+  <!-- BARRA DE PROGRESO SUPERIOR -->
+  <div class="fixed top-0 left-0 right-0 h-1 z-50 bg-borderline/60">
+    <div id="reading-progress" class="h-full bg-burgundy transition-all duration-150" style="width: 0%;"></div>
+  </div>
+
+  <!-- MÁRGENES LATERALES INTERACTIVOS CON TARJETAS PLEGABLES -->
+  <aside aria-label="Archivo visual margen izquierdo" class="hidden xl:flex fixed left-3 top-20 bottom-20 w-44 flex-col justify-center z-30 pointer-events-none">
+    <div id="left-margin-gallery" class="flex flex-col gap-2.5 pointer-events-auto max-h-full overflow-y-auto no-scrollbar py-2"></div>
+  </aside>
+
+  <aside aria-label="Archivo visual margen derecho" class="hidden xl:flex fixed right-3 top-20 bottom-20 w-44 flex-col justify-center z-30 pointer-events-none">
+    <div id="right-margin-gallery" class="flex flex-col gap-2.5 pointer-events-auto max-h-full overflow-y-auto no-scrollbar py-2"></div>
+  </aside>
+
+  <!-- NAVEGACIÓN SUPERIOR FIJA -->
+  <header class="sticky top-0 z-40 bg-bgpage/95 backdrop-blur-md border-b border-borderline">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      <a href="#portada" class="flex items-center gap-2.5 shrink-0">
+        <span class="w-2.5 h-2.5 rounded-full bg-burgundy"></span>
+        <span class="font-serif font-bold text-base sm:text-lg tracking-tight text-ink">Separados pero iguales</span>
+      </a>
+
+      <!-- Enlaces Desktop -->
+      <nav aria-label="Navegación principal" class="hidden lg:flex items-center gap-6 text-xs font-medium uppercase tracking-wider text-slateink">
+        <a href="#contexto" class="hover:text-burgundy transition-colors">Contexto</a>
+        <a href="#linea-tiempo" class="hover:text-burgundy transition-colors">Línea del tiempo</a>
+        <a href="#mapa" class="hover:text-burgundy transition-colors">Mapa</a>
+        <a href="#voces" class="hover:text-burgundy transition-colors">Voces</a>
+        <a href="#sonidos" class="hover:text-burgundy transition-colors">Sonidos</a>
+        <a href="#videos" class="hover:text-burgundy transition-colors">Videos</a>
+        <a href="#cine" class="hover:text-burgundy transition-colors">Cine</a>
+        <a href="#fuentes" class="hover:text-burgundy transition-colors">Fuentes</a>
+      </nav>
+
+      <!-- Botones de acción -->
+      <div class="flex items-center gap-2">
+        <button id="copy-link-btn" type="button" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-borderline bg-white text-xs font-medium text-ink hover:border-ink transition-colors" title="Copiar enlace de la página">
+          <svg class="w-3.5 h-3.5 text-burgundy" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+          <span id="copy-link-label">Copiar link</span>
+        </button>
+
+        <button id="mobile-menu-btn" type="button" aria-label="Abrir menú" class="lg:hidden p-2 rounded-lg border border-borderline bg-white text-ink hover:bg-tintblue/50">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú móvil -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-borderline bg-white px-4 py-4">
+      <div class="grid grid-cols-2 gap-2 text-sm font-medium text-ink">
+        <a href="#contexto" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-bgpage">Contexto</a>
+        <a href="#linea-tiempo" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-bgpage">Línea del tiempo</a>
+        <a href="#mapa" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-bgpage">Mapa</a>
+        <a href="#voces" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-bgpage">Voces</a>
+        <a href="#sonidos" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-bgpage">Sonidos</a>
+        <a href="#videos" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-bgpage">Videos</a>
+        <a href="#cine" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-bgpage">Cine</a>
+        <a href="#fuentes" class="mobile-nav-link px-3 py-2 rounded-lg hover:bg-bgpage">Fuentes</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. PORTADA -->
+    <section id="portada" class="pt-14 pb-20 sm:pt-20 sm:pb-28 border-b border-borderline">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white border border-borderline mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-burgundy"></span>
+          <span class="text-xs font-semibold tracking-[0.2em] uppercase text-slateink">ESTADOS UNIDOS · 1950–1969</span>
+        </div>
+
+        <h1 class="font-serif font-bold text-4xl sm:text-6xl md:text-7xl tracking-tight text-ink leading-[1.08] mb-6">
+          Separados pero <span class="strike-burgundy">iguales</span>
+        </h1>
+
+        <p class="text-lg sm:text-xl md:text-2xl text-slateink font-normal leading-relaxed max-w-3xl mb-10">
+          Cómo funcionó la segregación racial en Estados Unidos, cómo se la enfrentó en los años cincuenta y sesenta y por qué esa lucha sigue abierta.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-3.5">
+          <a href="#linea-tiempo" class="inline-flex items-center justify-center px-6 py-3.5 rounded-full bg-ink text-white text-sm font-semibold hover:bg-burgundy transition-colors shadow-sm">
+            Recorrer la línea del tiempo
+          </a>
+          <a href="#mapa" class="inline-flex items-center justify-center px-6 py-3.5 rounded-full bg-white text-ink border border-ink/25 text-sm font-semibold hover:border-ink transition-colors">
+            Ver el mapa del Sur
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. CONTEXTO (SIN FOTOS EN EL CUERPO PRINCIPAL) -->
+    <section id="contexto" class="py-16 sm:py-24 border-b border-borderline">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="max-w-3xl mb-12">
+          <span class="text-xs font-semibold uppercase tracking-[0.2em] text-burgundy block mb-2">Contexto</span>
+          <h2 class="font-serif font-bold text-3xl sm:text-4xl text-ink mb-4">Qué era la segregación</h2>
+          <p class="text-slateink text-base sm:text-lg leading-relaxed">
+            Después de la abolición de la esclavitud, el Sur de Estados Unidos construyó un sistema legal que mantenía separada y subordinada a la población negra.
+          </p>
+        </div>
+
+        <!-- Tres tarjetas conceptuales interactivas -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <article data-context-card class="cursor-pointer group bg-white rounded-2xl border border-borderline hover:border-burgundy p-7 shadow-sm flex flex-col justify-between transition-all">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-4">
+                <span class="inline-block text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md bg-tintblue text-ink">Sistema legal</span>
+                <span class="context-toggle-badge text-[11px] font-semibold text-burgundy group-hover:underline">Tocá para ampliar +</span>
+              </div>
+              <h3 class="font-serif font-bold text-xl text-ink mb-3">Las leyes Jim Crow</h3>
+              <p class="text-sm text-slateink leading-relaxed">
+                Leyes estatales y locales que separaban a blancos y negros en escuelas, transporte, baños, restaurantes y barrios, y que limitaban el derecho al voto con impuestos y pruebas de alfabetización.
+              </p>
+            </div>
+            <div class="context-drawer mt-4">
+              <div class="pt-4 border-t border-borderline text-xs text-ink leading-relaxed space-y-2">
+                <p><strong class="text-burgundy">Dato clave (1877–1965):</strong> El nombre proviene de un personaje caricaturesco del siglo XIX. En varios estados del Sur existían hasta biblias separadas para jurar en los tribunales.</p>
+              </div>
+            </div>
+          </article>
+
+          <article data-context-card class="cursor-pointer group bg-white rounded-2xl border border-borderline hover:border-burgundy p-7 shadow-sm flex flex-col justify-between transition-all">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-4">
+                <span class="inline-block text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md bg-tintblue text-ink">Fallo de 1896</span>
+                <span class="context-toggle-badge text-[11px] font-semibold text-burgundy group-hover:underline">Tocá para ampliar +</span>
+              </div>
+              <h3 class="font-serif font-bold text-xl text-ink mb-3">“Separados pero iguales”</h3>
+              <p class="text-sm text-slateink leading-relaxed">
+                En 1896 la Corte Suprema aceptó la separación siempre que los servicios fueran iguales. En la práctica, las escuelas y los servicios para la población negra eran peores y recibían menos fondos.
+              </p>
+            </div>
+            <div class="context-drawer mt-4">
+              <div class="pt-4 border-t border-borderline text-xs text-ink leading-relaxed space-y-2">
+                <p><strong class="text-burgundy">Caso Plessy contra Ferguson:</strong> Homer Plessy fue arrestado en Luisiana por sentarse en un vagón de tren reservado para blancos. La doctrina legitimó casi seis décadas de desigualdad presupuestaria.</p>
+              </div>
+            </div>
+          </article>
+
+          <article data-context-card class="cursor-pointer group bg-white rounded-2xl border border-borderline hover:border-burgundy p-7 shadow-sm flex flex-col justify-between transition-all">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-4">
+                <span class="inline-block text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md bg-burgundy/10 text-burgundy">Años 50 y 60</span>
+                <span class="context-toggle-badge text-[11px] font-semibold text-burgundy group-hover:underline">Tocá para ampliar +</span>
+              </div>
+              <h3 class="font-serif font-bold text-xl text-ink mb-3">Una lucha con varias estrategias</h3>
+              <p class="text-sm text-slateink leading-relaxed">
+                Juicios, boicots, sentadas y marchas. La no violencia y la desobediencia civil dominaron los años cincuenta; a mediados de los sesenta ganaron lugar las ideas de autodefensa y de poder político propio.
+              </p>
+            </div>
+            <div class="context-drawer mt-4">
+              <div class="pt-4 border-t border-borderline text-xs text-ink leading-relaxed space-y-2">
+                <p><strong class="text-burgundy">Evolución del movimiento:</strong> Del litigio judicial (NAACP) y la resistencia pacífica (SCLC, SNCC) al surgimiento del lema <em>Black Power</em> en 1966.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Archivo fotográfico plegable para pantallas medianas y móviles -->
+        <div class="xl:hidden mt-8 bg-white rounded-2xl border border-borderline p-5 shadow-sm">
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="text-xs font-bold uppercase tracking-widest text-burgundy">Archivo fotográfico histórico</span>
+            <span class="text-[11px] text-slateink">Tocá cada tarjeta para desplegar</span>
+          </div>
+          <div id="mobile-margin-gallery" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. LÍNEA DEL TIEMPO INTERACTIVA -->
+    <section id="linea-tiempo" class="py-16 sm:py-24 border-b border-borderline">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
+          <div class="max-w-2xl">
+            <span class="text-xs font-semibold uppercase tracking-[0.2em] text-burgundy block mb-2">Línea del tiempo</span>
+            <h2 class="font-serif font-bold text-3xl sm:text-4xl text-ink mb-3">De 1954 a una lucha inacabada</h2>
+            <p class="text-slateink text-sm sm:text-base leading-relaxed">
+              Los hechos centrales de los años cincuenta y sesenta. Tocá un año, usá los botones o las flechas del teclado, o deslizá la diapositiva. La línea se desvanece al final porque el conflicto sigue abierto.
+            </p>
+          </div>
+
+          <!-- Filtros -->
+          <div role="group" aria-label="Filtrar hechos históricos" class="inline-flex flex-wrap gap-1.5 bg-white p-1.5 rounded-xl border border-borderline self-start lg:self-auto">
+            <button type="button" data-filter="Todo" class="tl-filter-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-ink text-white transition-colors">Todo</button>
+            <button type="button" data-filter="Leyes" class="tl-filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium text-slateink hover:text-ink transition-colors">Leyes</button>
+            <button type="button" data-filter="Movimiento" class="tl-filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium text-slateink hover:text-ink transition-colors">Movimiento</button>
+            <button type="button" data-filter="Violencia" class="tl-filter-btn px-3.5 py-1.5 rounded-lg text-xs font-medium text-slateink hover:text-ink transition-colors">Violencia</button>
+          </div>
+        </div>
+
+        <!-- Barra de años clicable con desvanecimiento hacia el final abierto -->
+        <div class="bg-white rounded-2xl border border-borderline p-2 mb-6 overflow-x-auto no-scrollbar timeline-fade-mask">
+          <div id="tl-years-bar" class="flex items-center justify-between gap-1 min-w-max">
+            <!-- Generado por JS -->
+          </div>
+        </div>
+
+        <!-- Visor de diapositiva con soporte táctil (swipe) -->
+        <div id="tl-touch-area" class="bg-white rounded-2xl border border-borderline overflow-hidden shadow-sm select-none">
+          <!-- Indicador de progreso de reproducción -->
+          <div class="h-1 w-full bg-tintblue">
+            <div id="tl-autoplay-progress" class="h-full bg-burgundy transition-all duration-100" style="width: 0%;"></div>
+          </div>
+
+          <div id="tl-slide-container" class="p-6 sm:p-10">
+            <!-- Renderizado por JS -->
+          </div>
+
+          <!-- Barra de controles inferiores -->
+          <div class="px-5 sm:px-10 py-4 bg-bgpage/70 border-t border-borderline flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-2">
+              <button id="tl-prev-btn" type="button" class="px-4 py-2 rounded-xl border border-borderline bg-white text-xs sm:text-sm font-medium text-ink hover:border-ink disabled:opacity-40 transition-colors">
+                ← Anterior
+              </button>
+              <button id="tl-next-btn" type="button" class="px-4 py-2 rounded-xl bg-ink text-white text-xs sm:text-sm font-medium hover:bg-ink/90 disabled:opacity-40 transition-colors">
+                Siguiente →
+              </button>
+              <button id="tl-autoplay-btn" type="button" class="px-4 py-2 rounded-xl border border-borderline bg-white text-xs sm:text-sm font-semibold text-burgundy hover:border-burgundy transition-colors">
+                ▶ Reproducir
+              </button>
+            </div>
+
+            <span id="tl-counter" class="text-xs font-bold tracking-widest uppercase text-slateink">1 / 12</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. MAPA INTERACTIVO DEL SUR -->
+    <section id="mapa" class="py-16 sm:py-24 border-b border-borderline">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
+          <div class="max-w-2xl">
+            <span class="text-xs font-semibold uppercase tracking-[0.2em] text-burgundy block mb-2">Mapa</span>
+            <h2 class="font-serif font-bold text-3xl sm:text-4xl text-ink mb-3">El Sur de las leyes Jim Crow</h2>
+            <p class="text-slateink text-sm sm:text-base leading-relaxed">
+              Tocá una ciudad para ver qué pasó ahí. Los estados con tono rojizo eran los del sistema de segregación legal. Podés prender o apagar las rutas.
+            </p>
+          </div>
+
+          <!-- Interruptores de rutas -->
+          <div class="flex flex-wrap items-center gap-2.5">
+            <button id="toggle-route-freedom" type="button" aria-pressed="true" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-burgundy bg-burgundy text-white text-xs font-semibold transition-all">
+              <span class="w-3 border-t-2 border-dashed border-white"></span>
+              <span>Ruta de los Viajeros de la Libertad (1961)</span>
+            </button>
+            <button id="toggle-route-selma" type="button" aria-pressed="true" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-ink bg-ink text-white text-xs font-semibold transition-all">
+              <span class="w-3 border-t-2 border-white"></span>
+              <span>Marcha Selma–Montgomery (1965)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Selector rápido en píldoras para móvil y accesibilidad -->
+        <div id="map-city-pills" class="flex flex-wrap gap-1.5 mb-6"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          <!-- Mapa SVG del Sur -->
+          <div class="lg:col-span-7 bg-white rounded-2xl border border-borderline p-4 sm:p-6 flex flex-col justify-between shadow-sm">
+            <div class="relative w-full overflow-hidden rounded-xl bg-[#E7EDF4] border border-borderline/80">
+              <svg id="south-map-svg" viewBox="0 0 680 450" class="w-full h-auto block select-none" role="img" aria-label="Mapa del Sur de Estados Unidos con ciudades y rutas del movimiento por los derechos civiles">
+                <!-- Océano Atlántico y Golfo de México -->
+                <rect width="680" height="450" fill="#E5ECF3" />
+
+                <!-- Estados con tono rojizo tenue (sistema de segregación legal Jim Crow) -->
+                <!-- Virginia (VA) -->
+                <polygon points="445,62 565,55 585,98 440,105" fill="#F3E2E6" stroke="#C59EA8" stroke-width="1.5"/>
+                <text x="515" y="84" font-size="11" font-weight="700" fill="#8C4A59">VA</text>
+
+                <!-- Kentucky (KY) -->
+                <polygon points="265,78 445,62 440,105 260,115" fill="#F3E2E6" stroke="#C59EA8" stroke-width="1.5"/>
+                <text x="355" y="95" font-size="11" font-weight="700" fill="#8C4A59">KY</text>
+
+                <!-- Tennessee (TN) -->
+                <polygon points="215,115 440,105 415,152 205,158" fill="#F3E2E6" stroke="#C59EA8" stroke-width="1.5"/>
+                <text x="310" y="136" font-size="11" font-weight="700" fill="#8C4A59">TN</text>
+
+                <!-- Carolina del Norte (NC) -->
+                <polygon points="440,105 585,98 615,135 530,168 415,152" fill="#F3E2E6" stroke="#C59EA8" stroke-width="1.5"/>
+                <text x="515" y="135" font-size="11" font-weight="700" fill="#8C4A59">NC</text>
+
+                <!-- Carolina del Sur (SC) -->
+                <polygon points="445,156 530,168 492,228 430,188" fill="#F3E2E6" stroke="#C59EA8" stroke-width="1.5"/>
+                <text x="480" y="192" font-size="11" font-weight="700" fill="#8C4A59">SC</text>
+
+                <!-- Arkansas (AR) -->
+                <polygon points="105,122 215,115 205,212 110,212" fill="#F3E2E6" stroke="#C59EA8" stroke-width="1.5"/>
+                <text x="155" y="160" font-size="11" font-weight="700" fill="#8C4A59">AR</text>
+
+                <!-- Misisipi (MS) -->
+                <polygon points="205,158 278,158 278,312 225,312 225,282 195,282 205,212" fill="#F3E2E6" stroke="#C59EA8" stroke-width="1.5"/>
+                <text x="235" y="218" font-size="11" font-weight="700" fill="#8C4A59">MS</text>
+
+                <!-- Alabama (AL) -->
+                <polygon points="278,158 358,158 368,302 298,302 298,318 278,312" fill="#F3E2E6" stroke="#C59EA8" stroke-width="1.5"/>
+                <text x="315" y="202" font-size="11" font-weight="700" fill="#8C4A59">AL</text>
+
+                <!-- Georgia (GA) -->
+                <polygon points="358,158 430,188 492,228 475,302 368,302" fill="#F3E2E6" stroke="#C59EA8" stroke-width="1.5"/>
+                <text x="415" y="232" font-size="11" font-weight="700" fill="#8C4A59">GA</text>
+
+                <!-- Luisiana (LA) -->
+                <polygon points="110,212 195,212 195,282 232,332 145,342 112,295" fill="#F3E2E6" stroke="#C59EA8" stroke-width="1.5"/>
+                <text x="148" y="275" font-size="11" font-weight="700" fill="#8C4A59">LA</text>
+
+                <!-- Florida (FL) -->
+                <polygon points="298,302 475,302 512,395 470,405 435,332 298,324" fill="#F3E2E6" stroke="#C59EA8" stroke-width="1.5"/>
+                <text x="458" y="346" font-size="11" font-weight="700" fill="#8C4A59">FL</text>
+
+                <!-- Etiquetas marítimas -->
+                <text x="245" y="392" font-size="12" font-style="italic" font-family="Playfair Display, serif" fill="#6F8299">Golfo de México</text>
+                <text x="555" y="255" font-size="12" font-style="italic" font-family="Playfair Display, serif" fill="#6F8299">Océano Atlántico</text>
+
+                <!-- RUTA 1: Viajeros de la Libertad (1961) Washington D.C. -> Greensboro -> Anniston -> Birmingham -> Montgomery -> Jackson -> Nueva Orleans -->
+                <g id="layer-route-freedom">
+                  <path d="M 565,52 L 505,122 L 342,218 L 315,222 L 330,256 L 238,256 L 204,316"
+                        fill="none"
+                        stroke="#7B1E32"
+                        stroke-width="2.6"
+                        stroke-dasharray="6 5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </g>
+
+                <!-- RUTA 2: Marcha Selma–Montgomery (1965) -->
+                <g id="layer-route-selma">
+                  <line x1="302" y1="262" x2="330" y2="256" stroke="#0F1E36" stroke-width="3.5" stroke-linecap="round" />
+                </g>
+
+                <!-- Capa interactiva de marcadores de ciudades -->
+                <g id="map-markers-layer"></g>
+              </svg>
+            </div>
+
+            <div class="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs text-slateink">
+              <span class="inline-flex items-center gap-2">
+                <span class="w-3 h-3 rounded-sm bg-[#F3E2E6] border border-[#C59EA8]"></span>
+                <span>Estados con leyes de segregación Jim Crow</span>
+              </span>
+              <span class="font-medium text-ink">10 puntos históricos</span>
+            </div>
+          </div>
+
+          <!-- Panel lateral con detalle de ciudad -->
+          <div id="map-detail-panel" class="lg:col-span-5 bg-white rounded-2xl border border-borderline p-6 sm:p-8 flex flex-col justify-between shadow-sm">
+            <!-- Renderizado por JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. VOCES (CUATRO AUTORES, CUATRO IDEAS) -->
+    <section id="voces" class="py-16 sm:py-24 border-b border-borderline">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="max-w-3xl mb-12">
+          <span class="text-xs font-semibold uppercase tracking-[0.2em] text-burgundy block mb-2">Voces</span>
+          <h2 class="font-serif font-bold text-3xl sm:text-4xl text-ink mb-3">Cuatro autores, cuatro ideas</h2>
+          <p class="text-slateink text-base leading-relaxed">
+            Los textos reunidos en <em>Textos sobre el poder negro</em> (Ediciones Halcón, 1968) muestran que el movimiento no tuvo una sola estrategia. Abrí cada tarjeta para ver qué plantea cada autor.
+          </p>
+        </div>
+
+        <div id="voices-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Renderizado por JS con tarjetas desplegables -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. SONIDOS DE LA RESISTENCIA -->
+    <section id="sonidos" class="py-16 sm:py-24 border-b border-borderline">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="max-w-3xl mb-10">
+          <span class="text-xs font-semibold uppercase tracking-[0.2em] text-burgundy block mb-2">Sonidos de la resistencia</span>
+          <h2 class="font-serif font-bold text-3xl sm:text-4xl text-ink mb-3">La canción del movimiento</h2>
+          <p class="text-slateink text-base leading-relaxed">
+            La música acompañó cada marcha y cada sentada. De todas las canciones de la época, esta fue la más cantada y la más reconocida.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-borderline p-6 sm:p-10 shadow-sm">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <!-- Tarjeta principal de la canción (sin letra) -->
+            <div class="lg:col-span-5 bg-ink text-white rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+              <div>
+                <span class="inline-block text-[11px] font-semibold uppercase tracking-[0.18em] text-white/75 mb-4">
+                  Himno del movimiento por los derechos civiles
+                </span>
+                <h3 class="font-serif font-bold text-3xl sm:text-4xl mb-3">We Shall Overcome</h3>
+                <p class="text-sm text-white/80 leading-relaxed mb-8">
+                  En español, “Venceremos”. Un canto colectivo que se entonaba en las marchas, las iglesias, las cárceles y las asambleas.
+                </p>
+              </div>
+
+              <div>
+                <a href="https://www.youtube.com/results?search_query=We+Shall+Overcome+Civil+Rights+Movement" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full px-5 py-3.5 rounded-xl bg-burgundy hover:bg-burgundylight text-white text-xs sm:text-sm font-semibold transition-colors">
+                  <span>Escucharla en YouTube ↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Recorrido histórico numerado -->
+            <div class="lg:col-span-7">
+              <ol class="space-y-4">
+                <li class="flex items-start gap-4 p-3.5 rounded-xl bg-bgpage/70 border border-borderline/70">
+                  <span class="w-7 h-7 rounded-full bg-ink text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">1</span>
+                  <div>
+                    <p class="text-xs font-bold uppercase tracking-wider text-burgundy">Inicios del s. XX</p>
+                    <p class="text-sm text-ink mt-0.5">Nace como himno religioso afroamericano, de la tradición de las iglesias.</p>
+                  </div>
+                </li>
+
+                <li class="flex items-start gap-4 p-3.5 rounded-xl bg-bgpage/70 border border-borderline/70">
+                  <span class="w-7 h-7 rounded-full bg-ink text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">2</span>
+                  <div>
+                    <p class="text-xs font-bold uppercase tracking-wider text-burgundy">Años 40</p>
+                    <p class="text-sm text-ink mt-0.5">Trabajadores en huelga la cantan en los piquetes y la llevan a otros lugares.</p>
+                  </div>
+                </li>
+
+                <li class="flex items-start gap-4 p-3.5 rounded-xl bg-bgpage/70 border border-borderline/70">
+                  <span class="w-7 h-7 rounded-full bg-ink text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">3</span>
+                  <div>
+                    <p class="text-xs font-bold uppercase tracking-wider text-burgundy">1960</p>
+                    <p class="text-sm text-ink mt-0.5">Estudiantes del movimiento la adoptan en las sentadas y en las marchas por el Sur.</p>
+                  </div>
+                </li>
+
+                <li class="flex items-start gap-4 p-3.5 rounded-xl bg-bgpage/70 border border-borderline/70">
+                  <span class="w-7 h-7 rounded-full bg-ink text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">4</span>
+                  <div>
+                    <p class="text-xs font-bold uppercase tracking-wider text-burgundy">1965</p>
+                    <p class="text-sm text-ink mt-0.5">El presidente Lyndon Johnson usa esas palabras en su discurso al Congreso a favor del derecho al voto.</p>
+                  </div>
+                </li>
+
+                <li class="flex items-start gap-4 p-3.5 rounded-xl bg-bgpage/70 border border-borderline/70">
+                  <span class="w-7 h-7 rounded-full bg-burgundy text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">5</span>
+                  <div>
+                    <p class="text-xs font-bold uppercase tracking-wider text-burgundy">1968</p>
+                    <p class="text-sm text-ink mt-0.5">King la nombra en su último sermón dominical, pocos días antes de su asesinato.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. VIDEOS -->
+    <section id="videos" class="py-16 sm:py-24 border-b border-borderline">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="max-w-2xl mb-10">
+          <span class="text-xs font-semibold uppercase tracking-[0.2em] text-burgundy block mb-2">Videos</span>
+          <h2 class="font-serif font-bold text-3xl sm:text-4xl text-ink mb-3">Para ver</h2>
+          <p class="text-slateink text-base leading-relaxed">
+            Tocá cualquier tarjeta para ir directo al video en YouTube.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Video 1 -->
+          <a href="https://www.youtube.com/watch?v=SuNnLM-U_XM" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl border border-borderline p-7 flex flex-col justify-between shadow-sm hover:border-burgundy transition-all">
+            <div>
+              <div class="flex items-center justify-between mb-5">
+                <span class="px-2.5 py-1 rounded-md bg-tintblue text-ink text-xs font-semibold">Little Rock · 1957</span>
+                <span class="w-8 h-8 rounded-full bg-bgpage group-hover:bg-burgundy group-hover:text-white text-ink flex items-center justify-center transition-colors">
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </span>
+              </div>
+              <h3 class="font-serif font-bold text-xl text-ink group-hover:text-burgundy transition-colors leading-snug mb-3">
+                Voces y registros de la lucha contra la segregación en EE. UU.
+              </h3>
+              <p class="text-xs text-slateink leading-relaxed mb-6">
+                El día que estudiantes blancos expulsaron a compañeros negros que querían estudiar en Little Rock, Arkansas.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-borderline flex items-center justify-between text-xs font-semibold text-burgundy">
+              <span>Ver en YouTube ↗</span>
+            </div>
+          </a>
+
+          <!-- Video 2 -->
+          <a href="https://www.youtube.com/watch?v=mavaBdtd8cA" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl border border-borderline p-7 flex flex-col justify-between shadow-sm hover:border-burgundy transition-all">
+            <div>
+              <div class="flex items-center justify-between mb-5">
+                <span class="px-2.5 py-1 rounded-md bg-tintblue text-ink text-xs font-semibold">Archivo · 1960</span>
+                <span class="w-8 h-8 rounded-full bg-bgpage group-hover:bg-burgundy group-hover:text-white text-ink flex items-center justify-center transition-colors">
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </span>
+              </div>
+              <h3 class="font-serif font-bold text-xl text-ink group-hover:text-burgundy transition-colors leading-snug mb-3">
+                Resistencia en primera persona: archivos y relatos de los derechos civiles
+              </h3>
+              <p class="text-xs text-slateink leading-relaxed mb-6">
+                Archivo DiFilm (1960): imágenes de época sobre el racismo y las protestas en Estados Unidos.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-borderline flex items-center justify-between text-xs font-semibold text-burgundy">
+              <span>Ver en YouTube ↗</span>
+            </div>
+          </a>
+
+          <!-- Video 3 -->
+          <a href="https://www.youtube.com/watch?v=eKmh2ldwVQI" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl border border-borderline p-7 flex flex-col justify-between shadow-sm hover:border-burgundy transition-all">
+            <div>
+              <div class="flex items-center justify-between mb-5">
+                <span class="px-2.5 py-1 rounded-md bg-tintblue text-ink text-xs font-semibold">Selma · 1965</span>
+                <span class="w-8 h-8 rounded-full bg-bgpage group-hover:bg-burgundy group-hover:text-white text-ink flex items-center justify-center transition-colors">
+                  <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </span>
+              </div>
+              <h3 class="font-serif font-bold text-xl text-ink group-hover:text-burgundy transition-colors leading-snug mb-3">
+                De Little Rock a Selma: imágenes y testimonios contra la segregación
+              </h3>
+              <p class="text-xs text-slateink leading-relaxed mb-6">
+                Testigo de la Historia: crónica de la marcha por el derecho al voto y la represión en Alabama.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-borderline flex items-center justify-between text-xs font-semibold text-burgundy">
+              <span>Ver en YouTube ↗</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. CINE -->
+    <section id="cine" class="py-16 sm:py-24 border-b border-borderline">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="max-w-2xl mb-10">
+          <span class="text-xs font-semibold uppercase tracking-[0.2em] text-burgundy block mb-2">Cine</span>
+          <h2 class="font-serif font-bold text-3xl sm:text-4xl text-ink mb-3">Películas para entender la época</h2>
+          <p class="text-slateink text-base leading-relaxed">
+            Cinco películas que muestran la segregación de los años sesenta. Elegí una en la tira de abajo.
+          </p>
+        </div>
+
+        <!-- Visor destacado de la película seleccionada -->
+        <div id="cinema-featured-card" class="bg-white rounded-2xl border border-borderline overflow-hidden shadow-sm mb-6">
+          <!-- Renderizado por JS -->
+        </div>
+
+        <!-- Tira de selección inferior de las 5 películas -->
+        <div id="cinema-strip" class="grid grid-cols-2 sm:grid-cols-5 gap-3">
+          <!-- Renderizado por JS -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 9. FUENTES Y BIBLIOGRAFÍA -->
+  <footer id="fuentes" class="bg-white py-14 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-2xl mb-10">
+        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-burgundy block mb-2">Fuentes</span>
+        <h2 class="font-serif font-bold text-3xl text-ink mb-2">Para ampliar</h2>
+        <p class="text-sm text-slateink">Archivos y bibliografía para profundizar.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pb-12 border-b border-borderline">
+        <div class="p-5 rounded-xl bg-bgpage/70 border border-borderline">
+          <h3 class="font-serif font-bold text-base text-ink mb-1">Textos sobre el poder negro</h3>
+          <p class="text-xs text-slateink">Brown, Carmichael, King y Malcolm X. Ediciones Halcón, 1968.</p>
+        </div>
+
+        <div class="p-5 rounded-xl bg-bgpage/70 border border-borderline">
+          <h3 class="font-serif font-bold text-base text-ink mb-1">Library of Congress</h3>
+          <p class="text-xs text-slateink">Archivo de fotografías y documentos históricos.</p>
+        </div>
+
+        <div class="p-5 rounded-xl bg-bgpage/70 border border-borderline">
+          <h3 class="font-serif font-bold text-base text-ink mb-1">National Archives</h3>
+          <p class="text-xs text-slateink">Documentos oficiales, leyes y fallos.</p>
+        </div>
+
+        <div class="p-5 rounded-xl bg-bgpage/70 border border-borderline">
+          <h3 class="font-serif font-bold text-base text-ink mb-1">Museo Nacional de Historia y Cultura Afroamericana</h3>
+          <p class="text-xs text-slateink">Smithsonian.</p>
+        </div>
+
+        <div class="p-5 rounded-xl bg-bgpage/70 border border-borderline">
+          <h3 class="font-serif font-bold text-base text-ink mb-1">King Institute, Stanford</h3>
+          <p class="text-xs text-slateink">Discursos y escritos de Martin Luther King Jr.</p>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slateink">
+        <p><strong class="text-ink">Separados pero iguales</strong> · Estados Unidos, 1950–1969.</p>
+        <a href="#portada" class="font-semibold text-ink hover:text-burgundy transition-colors">Volver arriba ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Notificación al copiar link -->
+  <div id="copy-toast" class="fixed bottom-5 right-5 z-50 hidden items-center gap-2 px-4 py-3 rounded-xl bg-ink text-white text-xs font-medium shadow-lg">
+    <span class="w-2 h-2 rounded-full bg-burgundylight"></span>
+    <span>Enlace copiado al portapapeles</span>
+  </div>
+
+  <!-- VISOR MODAL PARA FOTOS DE LOS MÁRGENES -->
+  <div id="margin-photo-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-ink/70 backdrop-blur-sm p-4">
+    <div class="bg-white rounded-2xl border border-borderline max-w-lg w-full overflow-hidden shadow-2xl slide-fade-in">
+      <div class="px-5 py-3.5 bg-bgpage border-b border-borderline flex items-center justify-between">
+        <span id="modal-photo-tag" class="text-[11px] font-bold uppercase tracking-widest text-burgundy">Archivo documental</span>
+        <button id="close-photo-modal" type="button" aria-label="Cerrar imagen" class="text-xs font-semibold text-slateink hover:text-ink px-2 py-1 rounded-lg">✕ Cerrar</button>
+      </div>
+      <div id="modal-photo-artwork" class="aspect-[16/10] bg-ink overflow-hidden"></div>
+      <div class="p-5 sm:p-6">
+        <h3 id="modal-photo-title" class="font-serif font-bold text-xl text-ink mb-2"></h3>
+        <p id="modal-photo-desc" class="text-xs sm:text-sm text-slateink leading-relaxed"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- GLOBO FLOTANTE INTERACTIVO (BRÚJULA Y PISTAS HISTÓRICAS) -->
+  <div id="floating-guide-wrapper" class="fixed bottom-5 left-5 z-50 flex flex-col items-start gap-2.5">
+    <!-- Panel emergente del globo -->
+    <div id="floating-guide-panel" class="hidden w-72 sm:w-80 bg-white rounded-2xl border border-borderline shadow-xl p-4 sm:p-5 slide-fade-in">
+      <div class="flex items-center justify-between gap-2 pb-2.5 mb-3 border-b border-borderline">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-burgundy"></span>
+          <span class="text-[11px] font-bold uppercase tracking-widest text-ink">Guía interactiva</span>
+        </div>
+        <button id="close-guide-panel" type="button" aria-label="Cerrar guía" class="text-xs text-slateink hover:text-ink px-1.5 py-0.5 rounded">✕</button>
+      </div>
+
+      <!-- Dato contextual dinámico según la sección -->
+      <div class="p-3 rounded-xl bg-bgpage border border-borderline/80 mb-3.5">
+        <p id="guide-section-tag" class="text-[10px] font-bold uppercase tracking-wider text-burgundy mb-1">Estás en: Portada</p>
+        <p id="guide-section-tip" class="text-xs text-ink leading-relaxed">
+          Tocá cualquiera de los accesos de abajo para saltar directo a los hechos, el mapa del Sur o los pensadores.
+        </p>
+      </div>
+
+      <!-- Accesos rápidos -->
+      <div class="grid grid-cols-2 gap-1.5 text-xs font-medium">
+        <a href="#contexto" class="guide-jump-link px-3 py-2 rounded-xl bg-tintblue/60 hover:bg-ink hover:text-white text-ink transition-colors">1. Contexto</a>
+        <a href="#linea-tiempo" class="guide-jump-link px-3 py-2 rounded-xl bg-tintblue/60 hover:bg-ink hover:text-white text-ink transition-colors">2. Línea de tiempo</a>
+        <a href="#mapa" class="guide-jump-link px-3 py-2 rounded-xl bg-tintblue/60 hover:bg-ink hover:text-white text-ink transition-colors">3. Mapa del Sur</a>
+        <a href="#voces" class="guide-jump-link px-3 py-2 rounded-xl bg-tintblue/60 hover:bg-ink hover:text-white text-ink transition-colors">4. Voces (1968)</a>
+        <a href="#sonidos" class="guide-jump-link px-3 py-2 rounded-xl bg-tintblue/60 hover:bg-ink hover:text-white text-ink transition-colors">5. Himno</a>
+        <a href="#cine" class="guide-jump-link px-3 py-2 rounded-xl bg-tintblue/60 hover:bg-ink hover:text-white text-ink transition-colors">6. Cine y Videos</a>
+      </div>
+    </div>
+
+    <!-- Botón globo flotante -->
+    <button id="floating-guide-btn" type="button" aria-expanded="false" aria-label="Abrir guía interactiva de recorrido" class="floating-guide-orb group flex items-center gap-2.5 pl-3.5 pr-4 py-3 rounded-full bg-ink text-white border border-white/15 shadow-lg hover:bg-burgundy transition-colors">
+      <span class="relative flex h-3 w-3">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-burgundylight opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+      </span>
+      <span class="text-xs font-semibold tracking-wide">Explorar recorrido</span>
+    </button>
+  </div>
+
+  <script>
+    // =========================================================
+    // IMÁGENES ORIGINALES DEL ARCHIVO ZIP (SIN BUSCAR EN INTERNET)
+    // =========================================================
+    const ORIGINAL_ASSETS = {
+      king: 'photos/voz-1.jpg',
+      malcolm: 'photos/voz-2.jpg',
+      carmichael: 'photos/voz-3.jpg',
+      brown: 'photos/voz-4.jpg',
+      colectivo: 'photos/colectivo.jpg',
+      piscina: 'photos/piscina.jpg',
+      blm: 'photos/blm.jpg',
+      ilustracionKing: 'photos/ilustracion-king.jpg',
+      tl1954: 'photos/ilustracion-king.jpg',
+      tl1955: 'photos/piscina.jpg',
+      tl1955_56: 'photos/colectivo.jpg',
+      tl1957: 'photos/ilustracion-king.jpg',
+      tl1960: 'photos/piscina.jpg',
+      tl1961: 'photos/colectivo.jpg',
+      tl1963: 'photos/ilustracion-king.jpg',
+      tl1964: 'photos/ilustracion-king.jpg',
+      tl1965: 'photos/ilustracion-king.jpg',
+      tl1966: 'photos/voz-3.jpg',
+      tl1968: 'photos/voz-1.jpg',
+      tlFin: 'photos/blm.jpg',
+      selma: 'posters/selma.jpg',
+      talentos: 'posters/talentos-ocultos.jpg',
+      greenbook: 'posters/green-book.jpg',
+      historias: 'posters/historias-cruzadas.jpg',
+      mississippi: 'posters/arde-mississippi.jpg'
+    };
+
+    function handleAssetFallback(imgEl, assetKey) {
+      imgEl.style.opacity = '0.2';
+    }
+
+    // =========================================================
+    // DATOS COMPLETOS: LÍNEA DEL TIEMPO, MAPA, VOCES Y CINE
+    // =========================================================
+    const TIMELINE_DATA = [
+      {
+        year: '1954',
+        category: 'Leyes',
+        title: 'Brown contra la Junta de Educación',
+        desc: 'La Corte declara inconstitucional la segregación en las escuelas públicas y rechaza la idea de “separados pero iguales”. Es el golpe legal más fuerte contra Jim Crow.',
+        impact: 'Abrió la puerta a cuestionar la segregación en todos los ámbitos.',
+        assetKey: 'tl1954'
+      },
+      {
+        year: '1955',
+        category: 'Violencia',
+        title: 'El asesinato de Emmett Till',
+        desc: 'Emmett Till, un adolescente negro de 14 años de Chicago, es secuestrado y asesinado en Misisipi tras ser acusado de silbarle a una mujer blanca. Un jurado íntegramente blanco absuelve a los responsables.',
+        impact: 'Su madre dejó el ataúd abierto en el funeral; las fotos conmocionaron al país e impedieron mirar hacia otro lado.',
+        assetKey: 'tl1955'
+      },
+      {
+        year: '1955–56',
+        category: 'Movimiento',
+        title: 'Boicot a los autobuses de Montgomery',
+        desc: 'Tras la negativa de Rosa Parks a ceder su asiento en diciembre de 1955, la comunidad negra organiza un boicot de 381 días contra el transporte segregado, liderado por un joven Martin Luther King Jr.',
+        impact: 'La Corte Suprema prohíbe la segregación en los autobuses de Montgomery y consagra la resistencia pacífica.',
+        assetKey: 'tl1955_56'
+      },
+      {
+        year: '1957',
+        category: 'Movimiento',
+        title: 'Los Nueve de Little Rock',
+        desc: 'Nueve estudiantes afroamericanos intentan ingresar a la escuela secundaria Central High en Arkansas. El gobernador usa la Guardia Nacional para bloquearlos hasta que el presidente Eisenhower envía tropas federales.',
+        impact: 'Demostró que el gobierno federal debía intervenir para hacer cumplir los fallos contra la segregación.',
+        assetKey: 'tl1957'
+      },
+      {
+        year: '1960',
+        category: 'Movimiento',
+        title: 'Las sentadas (Sit-ins) de Greensboro',
+        desc: 'Cuatro estudiantes universitarios negros se sientan en un mostrador de almuerzos reservado para blancos en Carolina del Norte y se niegan a irse al ser rechazados. La protesta se extiende a decenas de ciudades.',
+        impact: 'Nace el Comité Coordinador Estudiantil No Violento (SNCC), clave en la movilización juvenil.',
+        assetKey: 'tl1960'
+      },
+      {
+        year: '1961',
+        category: 'Movimiento',
+        title: 'Los Viajeros de la Libertad (Freedom Riders)',
+        desc: 'Activistas blancos y negros viajan juntos en autobuses interestatales hacia el Sur profundo para verificar el fin de la segregación en terminales. Sufren incendios de unidades y golpizas en Alabama.',
+        impact: 'Forzó la aplicación efectiva de las normas federales contra la segregación en el transporte interestatal.',
+        assetKey: 'tl1961'
+      },
+      {
+        year: '1963',
+        category: 'Movimiento',
+        title: 'Campaña de Birmingham y Marcha sobre Washington',
+        desc: 'Tras la represión con perros y mangueras en Birmingham, más de 250.000 personas marchan en Washington D. C. por trabajo y libertad, donde King pronuncia su discurso “Tengo un sueño”.',
+        impact: 'Consolidó el apoyo nacional para aprobar una ley federal amplia de derechos civiles.',
+        assetKey: 'tl1963'
+      },
+      {
+        year: '1964',
+        category: 'Leyes',
+        title: 'Ley de Derechos Civiles de 1964',
+        desc: 'El presidente Lyndon B. Johnson firma la ley que prohíbe la discriminación por raza, color, religión, sexo u origen nacional en espacios públicos, escuelas y empleos.',
+        impact: 'Desmanteló el marco legal de las leyes Jim Crow en los espacios públicos de Estados Unidos.',
+        assetKey: 'tl1964'
+      },
+      {
+        year: '1965',
+        category: 'Leyes',
+        title: 'Marchas de Selma y Ley de Derecho al Voto',
+        desc: 'Tras la violenta represión del “Domingo Sangriento” en el puente Edmund Pettus, miles marchan hasta Montgomery. En agosto se promulga la Ley de Derecho al Voto.',
+        impact: 'Eliminó las pruebas de alfabetización y obstáculos que impedían votar a millones de ciudadanos negros.',
+        assetKey: 'tl1965'
+      },
+      {
+        year: '1966',
+        category: 'Movimiento',
+        title: 'El surgimiento del Poder Negro (Black Power)',
+        desc: 'Stokely Carmichael populariza la consigna “Black Power” durante la Marcha contra el Miedo en Misisipi. Ese año nace también el Partido Pantera Negra en Oakland, California.',
+        impact: 'Marcó un giro hacia la autonomía política, el orgullo cultural y la autodefensa comunitaria.',
+        assetKey: 'tl1966'
+      },
+      {
+        year: '1968',
+        category: 'Violencia',
+        title: 'Asesinato de Martin Luther King Jr.',
+        desc: 'El 4 de abril de 1968, King es asesinado en Memphis mientras apoyaba una huelga de recolectores de basura. Estallan protestas en más de cien ciudades de Estados Unidos.',
+        impact: 'Pocos días después se aprueba la Ley de Vivienda Justa, cerrando el ciclo legislativo de los años 60.',
+        assetKey: 'tl1968'
+      },
+      {
+        year: '¿Fin?',
+        category: 'Movimiento',
+        title: 'Una lucha inacabada',
+        desc: 'Aunque las leyes Jim Crow fueron derogadas, la desigualdad económica, la segregación residencial y la violencia institucional siguieron vigentes en las décadas siguientes hasta la actualidad.',
+        impact: 'Conecta directamente con los debates de Malcolm X, Carmichael y H. Rap Brown, y con movimientos actuales como Black Lives Matter.',
+        assetKey: 'tlFin',
+        isOpenEnding: true
+      }
+    ];
+
+    const CITIES_DATA = [
+      {
+        id: 'montgomery',
+        name: 'Montgomery',
+        state: 'Alabama',
+        years: '1955–56 · 1961',
+        x: 330,
+        y: 256,
+        timelineRef: '1955–56',
+        sections: [
+          {
+            heading: 'El transporte segregado',
+            text: 'En los colectivos, las primeras filas eran para pasajeros blancos. Las personas negras pagaban adelante, bajaban y volvían a subir por la puerta de atrás, y debían ceder su asiento si un pasajero blanco no tenía lugar.'
+          },
+          {
+            heading: 'El boicot',
+            text: 'Tras el arresto de Rosa Parks en diciembre de 1955, la comunidad negra dejó de usar los colectivos durante 381 días. En 1956 se declaró ilegal la segregación en el transporte de la ciudad.'
+          },
+          {
+            heading: 'Los Viajeros de la Libertad',
+            text: 'En mayo de 1961 los activistas fueron atacados en la terminal de colectivos de la ciudad.'
+          }
+        ]
+      },
+      {
+        id: 'selma',
+        name: 'Selma',
+        state: 'Alabama',
+        years: '1965',
+        x: 302,
+        y: 262,
+        timelineRef: '1965',
+        sections: [
+          {
+            heading: 'El bloqueo al voto',
+            text: 'A pesar de que la población negra era mayoría en el condado, menos del 2% estaba habilitada para votar debido a trabas administrativas y amenazas.'
+          },
+          {
+            heading: 'El puente Edmund Pettus',
+            text: 'El 7 de marzo de 1965, la policía estatal reprimió con gases y garrotes a los manifestantes pacíficos. La televisión transmitió las imágenes a todo el país.'
+          }
+        ]
+      },
+      {
+        id: 'littlerock',
+        name: 'Little Rock',
+        state: 'Arkansas',
+        years: '1957',
+        x: 162,
+        y: 165,
+        timelineRef: '1957',
+        sections: [
+          {
+            heading: 'Integración escolar',
+            text: 'El gobernador Orval Faubus ordenó a la Guardia Nacional impedir el ingreso de nueve estudiantes afroamericanos a la secundaria Central High.'
+          },
+          {
+            heading: 'Intervención federal',
+            text: 'El presidente Eisenhower envió tropas del ejército para escoltar a los jóvenes durante todo el ciclo lectivo frente al hostigamiento diario.'
+          }
+        ]
+      },
+      {
+        id: 'greensboro',
+        name: 'Greensboro',
+        state: 'Carolina del Norte',
+        years: '1960',
+        x: 505,
+        y: 122,
+        timelineRef: '1960',
+        sections: [
+          {
+            heading: 'Las sentadas (Sit-ins)',
+            text: 'Cuatro estudiantes universitarios afroamericanos se sentaron en la barra de comidas de la tienda Woolworth’s reservada para blancos y permanecieron allí hasta el cierre.'
+          },
+          {
+            heading: 'Efecto multiplicador',
+            text: 'En pocas semanas, más de 70.000 estudiantes replicaron las sentadas pacíficas en restaurantes, bibliotecas y playas de todo el Sur.'
+          }
+        ]
+      },
+      {
+        id: 'birmingham',
+        name: 'Birmingham',
+        state: 'Alabama',
+        years: '1961 · 1963',
+        x: 315,
+        y: 222,
+        timelineRef: '1963',
+        sections: [
+          {
+            heading: 'La ciudad más segregada',
+            text: 'Conocida como “Bombingham” por los atentados contra hogares e iglesias negras, fue escenario de protestas masivas lideradas por King y Fred Shuttlesworth.'
+          },
+          {
+            heading: 'Represión policial',
+            text: 'El jefe de policía Bull Connor ordenó usar perros policía y mangueras de agua de alta presión contra estudiantes que marchaban pacíficamente.'
+          }
+        ]
+      },
+      {
+        id: 'anniston',
+        name: 'Anniston',
+        state: 'Alabama',
+        years: '1961',
+        x: 342,
+        y: 218,
+        timelineRef: '1961',
+        sections: [
+          {
+            heading: 'Ataque a los Viajeros de la Libertad',
+            text: 'El 14 de mayo de 1961, una turba supremacista atacó el autobús Greyhound en el que viajaban activistas blancos y negros, pinchó sus neumáticos y lo incendió con una bomba.'
+          }
+        ]
+      },
+      {
+        id: 'jackson',
+        name: 'Jackson',
+        state: 'Misisipi',
+        years: '1961 · 1963',
+        x: 238,
+        y: 256,
+        timelineRef: '1961',
+        sections: [
+          {
+            heading: 'Arrestos masivos',
+            text: 'Más de 300 Viajeros de la Libertad fueron arrestados al llegar a la terminal de Jackson y enviados a la penitenciaría estatal de Parchman.'
+          },
+          {
+            heading: 'Medgar Evers',
+            text: 'En junio de 1963, el líder local de la NAACP Medgar Evers fue asesinado en la puerta de su casa en esta ciudad.'
+          }
+        ]
+      },
+      {
+        id: 'memphis',
+        name: 'Memphis',
+        state: 'Tennessee',
+        years: '1968',
+        x: 215,
+        y: 148,
+        timelineRef: '1968',
+        sections: [
+          {
+            heading: 'Huelga de trabajadores sanitarios',
+            text: 'En 1968, trabajadores negros de recolección de basura marcharon bajo el lema “I Am a Man” (Soy un hombre) reclamando salarios dignos y seguridad laboral.'
+          },
+          {
+            heading: '4 de abril de 1968',
+            text: 'Martin Luther King Jr. fue asesinado en el balcón del motel Lorraine mientras acompañaba la huelga.'
+          }
+        ]
+      },
+      {
+        id: 'washington',
+        name: 'Washington D.C.',
+        state: 'Capital Federal',
+        years: '1961 · 1963',
+        x: 565,
+        y: 52,
+        timelineRef: '1963',
+        sections: [
+          {
+            heading: 'Punto de partida y llegada',
+            text: 'Desde aquí partieron los Viajeros de la Libertad en mayo de 1961 rumbo al Sur profundo. Dos años después, el 28 de agosto de 1963, recibió la histórica Marcha sobre Washington.'
+          }
+        ]
+      },
+      {
+        id: 'neworleans',
+        name: 'Nueva Orleans',
+        state: 'Luisiana',
+        years: '1960 · 1961',
+        x: 204,
+        y: 316,
+        timelineRef: '1961',
+        sections: [
+          {
+            heading: 'Ruby Bridges y destino final',
+            text: 'En 1960, Ruby Bridges, de seis años, fue la primera niña negra en asistir a una escuela primaria para blancos en Nueva Orleans. Además, la ciudad era el destino previsto de los Viajeros de la Libertad.'
+          }
+        ]
+      }
+    ];
+
+    const VOICES_DATA = [
+      {
+        id: 'king',
+        name: 'Martin Luther King Jr.',
+        dates: '1929–1968',
+        role: 'Pastor bautista y líder de la no violencia.',
+        tag: 'No violencia e integración',
+        portraitType: 'king',
+        plantea:
+          'La desobediencia civil no violenta para derribar leyes injustas y lograr la integración de la población negra en la sociedad estadounidense.',
+        mirada:
+          'Entiende la segregación como una injusticia moral y legal, y busca que el país cumpla sus propios ideales de igualdad.'
+      },
+      {
+        id: 'malcolm',
+        name: 'Malcolm X',
+        dates: '1925–1965',
+        role: 'Vocero del orgullo y la autonomía negra.',
+        tag: 'Autodefensa y orgullo negro',
+        portraitType: 'malcolm',
+        plantea:
+          'Unidad y orgullo de la comunidad negra, autodefensa frente a la violencia y control de sus propias instituciones.',
+        mirada:
+          'Duda de que la integración resuelva la desigualdad y presenta el racismo como una cuestión de derechos humanos, no solo de leyes.'
+      },
+      {
+        id: 'carmichael',
+        name: 'Stokely Carmichael',
+        dates: '1941–1998',
+        role: 'Dirigente del SNCC que popularizó la consigna Black Power.',
+        tag: 'Poder Negro',
+        portraitType: 'carmichael',
+        plantea:
+          'Que las comunidades negras se organicen, voten y dirijan sus propias instituciones políticas y económicas, en lugar de depender de la buena voluntad de los blancos.',
+        mirada:
+          'Distingue el racismo individual del racismo institucional: aunque cambien las leyes, las estructuras siguen reproduciendo la desigualdad.'
+      },
+      {
+        id: 'brown',
+        name: 'H. Rap Brown',
+        dates: 'nacido en 1943',
+        role: 'Presidente del SNCC desde 1967.',
+        tag: 'Radicalización',
+        portraitType: 'brown',
+        plantea:
+          'Una postura radical que no acepta la no violencia como único camino y defiende la autodefensa frente a la violencia policial.',
+        mirada:
+          'Denuncia que la violencia ya era parte del sistema contra la población negra y que esperar que ese sistema cambie solo no alcanzaba.'
+      }
+    ];
+
+    const CINEMA_DATA = [
+      {
+        id: 'selma',
+        title: 'Selma',
+        year: '2014',
+        director: 'Ava DuVernay',
+        setting: 'Ambientada en 1965 · Hechos reales',
+        synopsis:
+          'Retrata las marchas de Selma a Montgomery, lideradas por Martin Luther King Jr., para exigir el derecho al voto frente a la brutal represión policial.',
+        timelineRef: '1965',
+        timelineLinkText: 'Ver Selma en la línea del tiempo →'
+      },
+      {
+        id: 'talentos',
+        title: 'Talentos ocultos',
+        year: '2016',
+        director: 'Theodore Melfi',
+        setting: 'Ambientada en 1961–1962 · Hechos reales',
+        synopsis:
+          'Cuenta la historia real de tres brillantes matemáticas afroamericanas que trabajaron en la NASA durante la carrera espacial mientras lidiaban con baños, comedores y oficinas segregadas.',
+        timelineRef: '1961',
+        timelineLinkText: 'Ver los años 1961–62 en la línea del tiempo →'
+      },
+      {
+        id: 'greenbook',
+        title: 'Green Book',
+        year: '2018',
+        director: 'Peter Farrelly',
+        setting: 'Ambientada en 1962 · Hechos reales',
+        synopsis:
+          'Un pianista clásico afroamericano contrata a un chofer italoamericano para girar por el sur profundo guiándose por el “Libro Verde”, la guía de hoteles y restaurantes seguros bajo las leyes Jim Crow.',
+        timelineRef: '1961',
+        timelineLinkText: 'Ver el contexto de las rutas del Sur →'
+      },
+      {
+        id: 'historias',
+        title: 'Historias cruzadas',
+        year: '2011',
+        director: 'Tate Taylor',
+        setting: 'Ambientada en 1963 · Ficción histórica',
+        synopsis:
+          'Situada en Jackson, Misisipi, muestra el racismo cotidiano desde el ámbito doméstico a través de las entrevistas de una joven periodista a las empleadas domésticas afroamericanas.',
+        timelineRef: '1963',
+        timelineLinkText: 'Ver 1963 en la línea del tiempo →'
+      },
+      {
+        id: 'mississippi',
+        title: 'Arde Mississippi',
+        year: '1988',
+        director: 'Alan Parker',
+        setting: 'Ambientada en 1964 · Inspirada en hechos reales',
+        synopsis:
+          'Sigue la investigación de dos agentes del FBI tras la desaparición de tres activistas por los derechos civiles en Misisipi, enfrentando la complicidad policial y la violencia del Ku Klux Klan.',
+        timelineRef: '1964',
+        timelineLinkText: 'Ver 1964 en la línea del tiempo →'
+      }
+    ];
+
+    function bindDirectPhotoLoader() {
+      const fileInput = document.createElement('input');
+      fileInput.type = 'file';
+      fileInput.accept = 'image/*';
+      fileInput.className = 'hidden';
+      document.body.appendChild(fileInput);
+
+      let activeAssetKey = null;
+
+      fileInput.addEventListener('change', () => {
+        const file = fileInput.files?.[0];
+        if (!file || !activeAssetKey) return;
+        const objectUrl = URL.createObjectURL(file);
+        ORIGINAL_ASSETS[activeAssetKey] = objectUrl;
+        renderTimelineSlide();
+        renderVoices();
+        renderCinema();
+        renderMarginGalleries();
+        fileInput.value = '';
+      });
+
+      document.addEventListener('click', e => {
+        const trigger = e.target.closest('[data-upload-asset]');
+        if (!trigger) return;
+        e.stopPropagation();
+        activeAssetKey = trigger.dataset.uploadAsset;
+        fileInput.click();
+      });
+    }
+
+    // =========================================================
+    // 3. LÍNEA DEL TIEMPO INTERACTIVA
+    // =========================================================
+    let currentFilter = 'Todo';
+    let currentSlideIndex = 0;
+    let autoplayTimer = null;
+    let autoplayProgressTimer = null;
+    let autoplayPercent = 0;
+
+    function getFilteredTimeline() {
+      if (currentFilter === 'Todo') return TIMELINE_DATA;
+      return TIMELINE_DATA.filter(item => item.category === currentFilter);
+    }
+
+    function stopAutoplay() {
+      if (autoplayTimer) {
+        clearInterval(autoplayTimer);
+        autoplayTimer = null;
+      }
+      if (autoplayProgressTimer) {
+        clearInterval(autoplayProgressTimer);
+        autoplayProgressTimer = null;
+      }
+      autoplayPercent = 0;
+      const bar = document.getElementById('tl-autoplay-progress');
+      if (bar) bar.style.width = '0%';
+      const btn = document.getElementById('tl-autoplay-btn');
+      if (btn) btn.textContent = '▶ Reproducir';
+    }
+
+    function toggleAutoplay() {
+      if (autoplayTimer) {
+        stopAutoplay();
+        return;
+      }
+      const btn = document.getElementById('tl-autoplay-btn');
+      if (btn) btn.textContent = '⏸ Pausar';
+
+      const duration = 4500;
+      const step = 100;
+      autoplayPercent = 0;
+
+      autoplayProgressTimer = setInterval(() => {
+        autoplayPercent += (step / duration) * 100;
+        const bar = document.getElementById('tl-autoplay-progress');
+        if (bar) bar.style.width = `${Math.min(autoplayPercent, 100)}%`;
+      }, step);
+
+      autoplayTimer = setInterval(() => {
+        const items = getFilteredTimeline();
+        currentSlideIndex = (currentSlideIndex + 1) % items.length;
+        autoplayPercent = 0;
+        renderTimelineSlide();
+      }, duration);
+    }
+
+    function renderTimelineSlide() {
+      const items = getFilteredTimeline();
+      if (currentSlideIndex >= items.length) currentSlideIndex = 0;
+      const item = items[currentSlideIndex];
+
+      const yearsBar = document.getElementById('tl-years-bar');
+      if (yearsBar) {
+        yearsBar.innerHTML = items
+          .map((ev, idx) => {
+            const active = idx === currentSlideIndex;
+            const isLast = ev.isOpenEnding;
+            return `
+              <button type="button" data-slide-idx="${idx}" class="px-3.5 py-2 rounded-xl text-xs font-semibold transition-all whitespace-nowrap ${
+                active
+                  ? 'bg-burgundy text-white shadow-sm'
+                  : isLast
+                  ? 'text-burgundy/80 hover:bg-tintblue/60 italic'
+                  : 'text-slateink hover:text-ink hover:bg-tintblue/50'
+              }">
+                ${ev.year}
+              </button>
+            `;
+          })
+          .join('');
+
+        yearsBar.querySelectorAll('[data-slide-idx]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            stopAutoplay();
+            currentSlideIndex = Number(btn.dataset.slideIdx);
+            renderTimelineSlide();
+          });
+        });
+      }
+
+      const container = document.getElementById('tl-slide-container');
+      const photoUrl = ORIGINAL_ASSETS[item.assetKey] || ORIGINAL_ASSETS.ilustracionKing;
+
+      if (container) {
+        container.innerHTML = `
+          <div class="slide-fade-in grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-7">
+              <div class="flex flex-wrap items-center gap-2.5 mb-4">
+                <span class="font-serif font-bold text-3xl sm:text-4xl text-burgundy">${item.year}</span>
+                <span class="px-2.5 py-1 rounded-md bg-tintblue text-ink text-xs font-semibold uppercase tracking-wider">
+                  ${item.category}
+                </span>
+              </div>
+              <h3 class="font-serif font-bold text-2xl sm:text-3xl text-ink mb-4 leading-snug">
+                ${item.title}
+              </h3>
+              <p class="text-sm sm:text-base text-slateink leading-relaxed mb-5">
+                ${item.desc}
+              </p>
+              <div class="p-4 rounded-xl bg-bgpage border-l-4 border-burgundy text-xs sm:text-sm text-ink leading-relaxed">
+                <strong class="text-burgundy">Por qué importa:</strong> ${item.impact}
+              </div>
+              ${
+                item.isOpenEnding
+                  ? `<div class="mt-5 flex flex-wrap gap-2.5">
+                      <a href="#voces" class="px-4 py-2 rounded-xl bg-ink text-white text-xs font-semibold hover:bg-burgundy transition-colors">Ver los debates en Voces →</a>
+                    </div>`
+                  : ''
+              }
+            </div>
+
+            <div class="lg:col-span-5">
+              <div class="aspect-[4/3] rounded-2xl overflow-hidden border border-borderline bg-bgpage shadow-sm relative group">
+                <img
+                  src="${photoUrl}"
+                  alt="${item.title}"
+                  class="w-full h-full object-cover"
+                  onerror="handleAssetFallback(this, '${item.assetKey}')"
+                />
+                <span class="absolute bottom-2.5 left-2.5 px-2.5 py-1 rounded-md bg-ink/85 text-white text-[11px] font-medium">
+                  Registro · ${item.year}
+                </span>
+                <button type="button" data-upload-asset="${item.assetKey}" title="Seleccionar archivo de foto" class="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-md bg-ink/90 hover:bg-burgundy text-white text-[11px] font-medium transition-colors shadow-sm">
+                  Cambiar foto
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      const counter = document.getElementById('tl-counter');
+      if (counter) counter.textContent = `${currentSlideIndex + 1} / ${items.length}`;
+
+      const prevBtn = document.getElementById('tl-prev-btn');
+      const nextBtn = document.getElementById('tl-next-btn');
+      if (prevBtn) prevBtn.disabled = currentSlideIndex === 0;
+      if (nextBtn) nextBtn.disabled = currentSlideIndex === items.length - 1;
+    }
+
+    function jumpToTimelineYear(yearStr) {
+      stopAutoplay();
+      currentFilter = 'Todo';
+      document.querySelectorAll('.tl-filter-btn').forEach(btn => {
+        const isTodo = btn.dataset.filter === 'Todo';
+        btn.className = `tl-filter-btn px-3.5 py-1.5 rounded-lg text-xs ${
+          isTodo ? 'font-semibold bg-ink text-white' : 'font-medium text-slateink hover:text-ink'
+        } transition-colors`;
+      });
+      const idx = TIMELINE_DATA.findIndex(item => item.year === yearStr);
+      currentSlideIndex = idx >= 0 ? idx : 0;
+      renderTimelineSlide();
+      document.getElementById('linea-tiempo')?.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // =========================================================
+    // 4. MAPA INTERACTIVO DEL SUR
+    // =========================================================
+    let selectedCityId = 'montgomery';
+    let showFreedomRoute = true;
+    let showSelmaRoute = true;
+
+    function renderMapUI() {
+      const pills = document.getElementById('map-city-pills');
+      if (pills) {
+        pills.innerHTML = CITIES_DATA.map(city => {
+          const active = city.id === selectedCityId;
+          return `
+            <button type="button" data-city-id="${city.id}" class="px-3 py-1.5 rounded-full text-xs font-semibold border transition-all ${
+              active
+                ? 'bg-ink text-white border-ink shadow-sm'
+                : 'bg-white text-slateink border-borderline hover:border-ink hover:text-ink'
+            }">
+              ${city.name}
+            </button>
+          `;
+        }).join('');
+
+        pills.querySelectorAll('[data-city-id]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            selectedCityId = btn.dataset.cityId;
+            renderMapUI();
+          });
+        });
+      }
+
+      const markersLayer = document.getElementById('map-markers-layer');
+      if (markersLayer) {
+        markersLayer.innerHTML = CITIES_DATA.map(city => {
+          const active = city.id === selectedCityId;
+          const labelOffsetY = city.id === 'selma' ? 16 : -10;
+          const labelOffsetX = city.id === 'anniston' ? 10 : 0;
+          return `
+            <g class="cursor-pointer" data-map-city="${city.id}" role="button" tabindex="0" aria-label="${city.name}, ${city.state}">
+              ${
+                active
+                  ? `<circle cx="${city.x}" cy="${city.y}" r="11" fill="#7B1E32" class="city-pulse"></circle>`
+                  : ''
+              }
+              <circle
+                cx="${city.x}"
+                cy="${city.y}"
+                r="${active ? 7 : 5.2}"
+                fill="${active ? '#7B1E32' : '#0F1E36'}"
+                stroke="#FFFFFF"
+                stroke-width="2"
+              />
+              <text
+                x="${city.x + labelOffsetX}"
+                y="${city.y + labelOffsetY}"
+                text-anchor="${labelOffsetX > 0 ? 'start' : 'middle'}"
+                font-size="${active ? '11.5' : '10'}"
+                font-weight="${active ? '700' : '600'}"
+                fill="${active ? '#7B1E32' : '#0F1E36'}"
+              >
+                ${city.name}
+              </text>
+            </g>
+          `;
+        }).join('');
+
+        markersLayer.querySelectorAll('[data-map-city]').forEach(g => {
+          g.addEventListener('click', () => {
+            selectedCityId = g.dataset.mapCity;
+            renderMapUI();
+          });
+        });
+      }
+
+      const detailPanel = document.getElementById('map-detail-panel');
+      const city = CITIES_DATA.find(c => c.id === selectedCityId) || CITIES_DATA[0];
+      if (detailPanel) {
+        detailPanel.innerHTML = `
+          <div class="slide-fade-in">
+            <span class="inline-block text-xs font-bold uppercase tracking-wider text-burgundy mb-1">${city.years}</span>
+            <h3 class="font-serif font-bold text-3xl text-ink leading-tight">${city.name}</h3>
+            <p class="text-xs font-semibold uppercase tracking-widest text-slateink mb-6">${city.state}</p>
+
+            <div class="space-y-4">
+              ${city.sections
+                .map(
+                  sec => `
+                <div class="p-4 rounded-xl bg-bgpage/80 border border-borderline/80">
+                  <h4 class="font-serif font-bold text-base text-ink mb-1">${sec.heading}</h4>
+                  <p class="text-xs sm:text-sm text-slateink leading-relaxed">${sec.text}</p>
+                </div>
+              `
+                )
+                .join('')}
+            </div>
+          </div>
+
+          <div class="pt-5 mt-6 border-t border-borderline">
+            <button type="button" id="map-jump-tl-btn" class="text-xs sm:text-sm font-semibold text-burgundy hover:underline">
+              Ver este hecho en la línea del tiempo →
+            </button>
+          </div>
+        `;
+
+        document.getElementById('map-jump-tl-btn')?.addEventListener('click', () => {
+          jumpToTimelineYear(city.timelineRef);
+        });
+      }
+    }
+
+    function renderVoices() {
+      const grid = document.getElementById('voices-grid');
+      if (!grid) return;
+
+      grid.innerHTML = VOICES_DATA.map(author => {
+        const photoSrc = ORIGINAL_ASSETS[author.portraitType];
+        return `
+        <article class="bg-white rounded-2xl border border-borderline p-6 sm:p-7 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-start gap-4 mb-5">
+              <div class="w-24 h-28 sm:w-28 sm:h-32 rounded-2xl overflow-hidden border border-borderline shrink-0 bg-bgpage relative shadow-sm group">
+                <img
+                  src="${photoSrc}"
+                  alt="Fotografía de ${author.name}"
+                  class="w-full h-full object-cover object-top"
+                  onerror="handleAssetFallback(this, '${author.portraitType}')"
+                />
+                <button type="button" data-upload-asset="${author.portraitType}" title="Seleccionar archivo de foto" class="absolute inset-x-1 bottom-1 px-1.5 py-0.5 rounded bg-ink/85 text-white text-[9px] font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                  Cambiar foto
+                </button>
+              </div>
+              <div>
+                <span class="inline-block text-[11px] font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded bg-burgundy/10 text-burgundy mb-1.5">
+                  ${author.tag}
+                </span>
+                <h3 class="font-serif font-bold text-xl sm:text-2xl text-ink leading-tight">${author.name}</h3>
+                <p class="text-xs font-medium text-slateink mt-0.5">${author.dates} · ${author.role}</p>
+              </div>
+            </div>
+
+            <button type="button" data-voice-toggle="${author.id}" aria-expanded="true" class="w-full flex items-center justify-between px-4 py-2.5 rounded-xl bg-bgpage hover:bg-tintblue/60 text-xs font-semibold text-ink transition-colors">
+              <span>Qué plantea y qué piensa</span>
+              <span class="voice-chevron text-burgundy">−</span>
+            </button>
+
+            <div id="voice-panel-${author.id}" class="voice-details mt-4">
+              <div class="space-y-3 pt-1">
+                <div class="p-4 rounded-xl bg-bgpage/70 border border-borderline/80">
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-burgundy mb-1">Qué plantea</h4>
+                  <p class="text-xs sm:text-sm text-ink leading-relaxed">${author.plantea}</p>
+                </div>
+                <div class="p-4 rounded-xl bg-bgpage/70 border border-borderline/80">
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-ink mb-1">Su mirada del problema</h4>
+                  <p class="text-xs sm:text-sm text-slateink leading-relaxed">${author.mirada}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      `;
+      }).join('');
+
+      grid.querySelectorAll('[data-voice-toggle]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const panel = document.getElementById(`voice-panel-${btn.dataset.voiceToggle}`);
+          const chevron = btn.querySelector('.voice-chevron');
+          const isCollapsed = panel.classList.toggle('collapsed');
+          btn.setAttribute('aria-expanded', String(!isCollapsed));
+          chevron.textContent = isCollapsed ? '+' : '−';
+        });
+      });
+    }
+
+    // =========================================================
+    // 8. CINE (GALERÍA CON LAS 5 PORTADAS ORIGINALES)
+    // =========================================================
+    let selectedMovieId = 'selma';
+
+    function renderCinema() {
+      const featured = document.getElementById('cinema-featured-card');
+      const strip = document.getElementById('cinema-strip');
+      if (!featured || !strip) return;
+
+      const movie = CINEMA_DATA.find(m => m.id === selectedMovieId) || CINEMA_DATA[0];
+      const featuredPoster = ORIGINAL_ASSETS[movie.id];
+
+      featured.innerHTML = `
+        <div class="slide-fade-in grid grid-cols-1 md:grid-cols-12">
+          <div class="md:col-span-4 relative min-h-[300px] flex flex-col justify-between bg-bgpage overflow-hidden group">
+            <img
+              src="${featuredPoster}"
+              alt="Portada de ${movie.title}"
+              class="w-full h-full object-cover object-center"
+              onerror="handleAssetFallback(this, '${movie.id}')"
+            />
+            <button type="button" data-upload-asset="${movie.id}" class="absolute bottom-2 right-2 px-2.5 py-1 rounded-lg bg-ink/85 text-white text-[10px] font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+              Cargar portada
+            </button>
+          </div>
+
+          <div class="md:col-span-8 p-6 sm:p-10 flex flex-col justify-between">
+            <div>
+              <span class="inline-block text-xs font-semibold text-burgundy mb-2">${movie.setting}</span>
+              <h3 class="font-serif font-bold text-2xl sm:text-3xl text-ink mb-1">${movie.title}</h3>
+              <p class="text-xs font-medium text-slateink mb-5">${movie.year} · Dir. ${movie.director}</p>
+              <p class="text-sm sm:text-base text-slateink leading-relaxed mb-6">${movie.synopsis}</p>
+            </div>
+
+            <div class="pt-4 border-t border-borderline">
+              <button type="button" id="movie-jump-tl-btn" class="text-xs sm:text-sm font-semibold text-burgundy hover:underline">
+                ${movie.timelineLinkText}
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('movie-jump-tl-btn')?.addEventListener('click', () => {
+        jumpToTimelineYear(movie.timelineRef);
+      });
+
+      strip.innerHTML = CINEMA_DATA.map(item => {
+        const active = item.id === selectedMovieId;
+        const thumbPoster = ORIGINAL_ASSETS[item.id];
+        return `
+          <button type="button" data-movie-id="${item.id}" class="text-left rounded-2xl border overflow-hidden transition-all flex flex-col ${
+            active
+              ? 'bg-ink text-white border-ink shadow-md ring-2 ring-burgundy/40'
+              : 'bg-white text-ink border-borderline hover:border-burgundy'
+          }">
+            <div class="w-full aspect-[3/4] overflow-hidden bg-bgpage border-b border-borderline/50">
+              <img src="${thumbPoster}" alt="Portada ${item.title}" class="w-full h-full object-cover" onerror="handleAssetFallback(this, '${item.id}')" />
+            </div>
+            <div class="p-3">
+              <span class="block text-[10px] font-bold ${active ? 'text-white/75' : 'text-burgundy'} mb-0.5">${item.year}</span>
+              <span class="block font-serif font-bold text-xs sm:text-sm leading-snug line-clamp-1">${item.title}</span>
+              <span class="block text-[10px] mt-0.5 ${active ? 'text-white/75' : 'text-slateink'} truncate">${item.director}</span>
+            </div>
+          </button>
+        `;
+      }).join('');
+
+      strip.querySelectorAll('[data-movie-id]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          selectedMovieId = btn.dataset.movieId;
+          renderCinema();
+        });
+      });
+    }
+
+    // =========================================================
+    // 10. INICIALIZACIÓN Y MÁRGENES CON TUS FOTOS ORIGINALES
+    // =========================================================
+    const MARGIN_ARCHIVE_ITEMS = [
+      {
+        side: 'left',
+        tag: 'Transporte · 1955–56',
+        title: 'Transporte segregado',
+        desc: 'Pasajeros blancos en los asientos delanteros y pasajeros negros en la parte posterior de los colectivos.',
+        assetKey: 'colectivo',
+        defaultOpen: true
+      },
+      {
+        side: 'left',
+        tag: 'Espacios públicos',
+        title: 'Instalaciones segregadas',
+        desc: 'Separación física bajo la doctrina “separados pero iguales”.',
+        assetKey: 'piscina',
+        defaultOpen: false
+      },
+      {
+        side: 'right',
+        tag: 'Movimiento',
+        title: 'Martin Luther King Jr.',
+        desc: 'Referente de la resistencia pacífica y la lucha por los derechos civiles.',
+        assetKey: 'ilustracionKing',
+        defaultOpen: true
+      },
+      {
+        side: 'right',
+        tag: 'Lucha inacabada',
+        title: 'Continuidad histórica',
+        desc: 'Movilizaciones contemporáneas contra el racismo y la violencia institucional.',
+        assetKey: 'blm',
+        defaultOpen: false
+      }
+    ];
+
+    function renderMarginGalleries() {
+      const leftContainer = document.getElementById('left-margin-gallery');
+      const rightContainer = document.getElementById('right-margin-gallery');
+      const mobileContainer = document.getElementById('mobile-margin-gallery');
+      const modal = document.getElementById('margin-photo-modal');
+
+      const buildFoldableCards = items =>
+        items
+          .map(item => {
+            const globalIdx = MARGIN_ARCHIVE_ITEMS.indexOf(item);
+            const imgSrc = ORIGINAL_ASSETS[item.assetKey];
+            return `
+            <div class="foldable-photo-card margin-gallery-item bg-white/95 backdrop-blur-sm rounded-xl border border-borderline overflow-hidden shadow-sm ${item.defaultOpen ? 'is-open' : ''}">
+              <button type="button" data-fold-toggle="${globalIdx}" aria-expanded="${item.defaultOpen}" class="w-full text-left px-2.5 py-2 flex items-center justify-between gap-1.5 hover:bg-bgpage/70 transition-colors">
+                <div class="min-w-0">
+                  <span class="block text-[9px] font-bold uppercase tracking-wider text-burgundy truncate">${item.tag}</span>
+                  <span class="block text-[11px] font-semibold text-ink leading-tight truncate">${item.title}</span>
+                </div>
+                <span class="fold-chevron text-xs font-bold text-burgundy shrink-0">${item.defaultOpen ? '−' : '+'}</span>
+              </button>
+
+              <div class="foldable-photo-body">
+                <div>
+                  <div class="px-2 pb-2">
+                    <div data-margin-idx="${globalIdx}" role="button" tabindex="0" title="Ampliar fotografía" class="cursor-pointer aspect-[16/10] rounded-lg bg-bgpage overflow-hidden border border-borderline/70 relative group">
+                      <img src="${imgSrc}" alt="${item.title}" class="w-full h-full object-cover" onerror="handleAssetFallback(this, '${item.assetKey}')" />
+                      <span class="absolute bottom-1 left-1 px-1.5 py-0.5 rounded bg-ink/80 text-white text-[9px] font-medium opacity-0 group-hover:opacity-100 transition-opacity">Ampliar</span>
+                      <button type="button" data-upload-asset="${item.assetKey}" title="Cargar foto desde tu carpeta" class="absolute bottom-1 right-1 px-1.5 py-0.5 rounded bg-burgundy text-white text-[9px] font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                        Cambiar foto
+                      </button>
+                    </div>
+                    <p class="text-[10px] text-slateink leading-snug mt-1.5 line-clamp-2">${item.desc}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          })
+          .join('');
+
+      if (leftContainer) {
+        leftContainer.innerHTML = buildFoldableCards(MARGIN_ARCHIVE_ITEMS.filter(i => i.side === 'left'));
+      }
+      if (rightContainer) {
+        rightContainer.innerHTML = buildFoldableCards(MARGIN_ARCHIVE_ITEMS.filter(i => i.side === 'right'));
+      }
+      if (mobileContainer) {
+        mobileContainer.innerHTML = buildFoldableCards(MARGIN_ARCHIVE_ITEMS);
+      }
+
+      document.querySelectorAll('[data-fold-toggle]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const card = btn.closest('.foldable-photo-card');
+          const chevron = btn.querySelector('.fold-chevron');
+          const isOpen = card?.classList.toggle('is-open');
+          btn.setAttribute('aria-expanded', String(Boolean(isOpen)));
+          if (chevron) chevron.textContent = isOpen ? '−' : '+';
+        });
+      });
+
+      document.querySelectorAll('[data-margin-idx]').forEach(el => {
+        el.addEventListener('click', () => {
+          const item = MARGIN_ARCHIVE_ITEMS[Number(el.dataset.marginIdx)];
+          if (!item || !modal) return;
+          const imgSrc = ORIGINAL_ASSETS[item.assetKey];
+          document.getElementById('modal-photo-tag').textContent = item.tag;
+          document.getElementById('modal-photo-title').textContent = item.title;
+          document.getElementById('modal-photo-desc').textContent = item.desc;
+          document.getElementById('modal-photo-artwork').innerHTML = `
+            <img src="${imgSrc}" alt="${item.title}" class="w-full h-full object-cover" onerror="handleAssetFallback(this, '${item.assetKey}')" />
+          `;
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+        });
+      });
+
+      document.getElementById('close-photo-modal')?.addEventListener('click', () => {
+        modal?.classList.add('hidden');
+        modal?.classList.remove('flex');
+      });
+
+      modal?.addEventListener('click', e => {
+        if (e.target === modal) {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+        }
+      });
+    }
+
+    function initControls() {
+      // Filtros de línea del tiempo
+      document.querySelectorAll('.tl-filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          stopAutoplay();
+          currentFilter = btn.dataset.filter;
+          currentSlideIndex = 0;
+          document.querySelectorAll('.tl-filter-btn').forEach(b => {
+            const active = b === btn;
+            b.className = `tl-filter-btn px-3.5 py-1.5 rounded-lg text-xs ${
+              active ? 'font-semibold bg-ink text-white' : 'font-medium text-slateink hover:text-ink'
+            } transition-colors`;
+          });
+          renderTimelineSlide();
+        });
+      });
+
+      document.getElementById('tl-prev-btn')?.addEventListener('click', () => {
+        stopAutoplay();
+        if (currentSlideIndex > 0) {
+          currentSlideIndex--;
+          renderTimelineSlide();
+        }
+      });
+
+      document.getElementById('tl-next-btn')?.addEventListener('click', () => {
+        stopAutoplay();
+        const items = getFilteredTimeline();
+        if (currentSlideIndex < items.length - 1) {
+          currentSlideIndex++;
+          renderTimelineSlide();
+        }
+      });
+
+      document.getElementById('tl-autoplay-btn')?.addEventListener('click', toggleAutoplay);
+
+      // Teclado izquierda/derecha para línea del tiempo
+      document.addEventListener('keydown', e => {
+        if (e.key === 'ArrowLeft') {
+          const items = getFilteredTimeline();
+          if (currentSlideIndex > 0) {
+            stopAutoplay();
+            currentSlideIndex--;
+            renderTimelineSlide();
+          }
+        } else if (e.key === 'ArrowRight') {
+          const items = getFilteredTimeline();
+          if (currentSlideIndex < items.length - 1) {
+            stopAutoplay();
+            currentSlideIndex++;
+            renderTimelineSlide();
+          }
+        }
+      });
+
+      // Swipe táctil en diapositivas
+      const touchArea = document.getElementById('tl-touch-area');
+      let touchStartX = 0;
+      touchArea?.addEventListener(
+        'touchstart',
+        e => {
+          touchStartX = e.changedTouches[0].screenX;
+        },
+        { passive: true }
+      );
+      touchArea?.addEventListener(
+        'touchend',
+        e => {
+          const diff = touchStartX - e.changedTouches[0].screenX;
+          const items = getFilteredTimeline();
+          if (Math.abs(diff) > 45) {
+            stopAutoplay();
+            if (diff > 0 && currentSlideIndex < items.length - 1) {
+              currentSlideIndex++;
+              renderTimelineSlide();
+            } else if (diff < 0 && currentSlideIndex > 0) {
+              currentSlideIndex--;
+              renderTimelineSlide();
+            }
+          }
+        },
+        { passive: true }
+      );
+
+      // Interruptores de rutas en el mapa
+      const freedomBtn = document.getElementById('toggle-route-freedom');
+      const selmaBtn = document.getElementById('toggle-route-selma');
+
+      freedomBtn?.addEventListener('click', () => {
+        showFreedomRoute = !showFreedomRoute;
+        const layer = document.getElementById('layer-route-freedom');
+        if (layer) layer.style.display = showFreedomRoute ? 'block' : 'none';
+        freedomBtn.setAttribute('aria-pressed', String(showFreedomRoute));
+        freedomBtn.className = showFreedomRoute
+          ? 'inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-burgundy bg-burgundy text-white text-xs font-semibold transition-all'
+          : 'inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-borderline bg-white text-slateink text-xs font-semibold transition-all';
+      });
+
+      selmaBtn?.addEventListener('click', () => {
+        showSelmaRoute = !showSelmaRoute;
+        const layer = document.getElementById('layer-route-selma');
+        if (layer) layer.style.display = showSelmaRoute ? 'block' : 'none';
+        selmaBtn.setAttribute('aria-pressed', String(showSelmaRoute));
+        selmaBtn.className = showSelmaRoute
+          ? 'inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-ink bg-ink text-white text-xs font-semibold transition-all'
+          : 'inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-borderline bg-white text-slateink text-xs font-semibold transition-all';
+      });
+
+      // Copiar link
+      document.getElementById('copy-link-btn')?.addEventListener('click', () => {
+        const tempInput = document.createElement('input');
+        tempInput.value = window.location.href;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+
+        const toast = document.getElementById('copy-toast');
+        if (toast) {
+          toast.classList.remove('hidden');
+          toast.classList.add('flex');
+          setTimeout(() => {
+            toast.classList.add('hidden');
+            toast.classList.remove('flex');
+          }, 2500);
+        }
+      });
+
+      // Menú móvil
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileBtn?.addEventListener('click', () => {
+        mobileMenu?.classList.toggle('hidden');
+      });
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => mobileMenu?.classList.add('hidden'));
+      });
+
+      // Barra de progreso superior
+      window.addEventListener(
+        'scroll',
+        () => {
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const pct = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+          const bar = document.getElementById('reading-progress');
+          if (bar) bar.style.width = `${Math.min(100, Math.max(0, pct))}%`;
+        },
+        { passive: true }
+      );
+    }
+
+    function initInteractiveFeatures() {
+      // Tarjetas conceptuales desplegables en Contexto
+      document.querySelectorAll('[data-context-card]').forEach(card => {
+        card.addEventListener('click', () => {
+          const drawer = card.querySelector('.context-drawer');
+          const badge = card.querySelector('.context-toggle-badge');
+          const isOpen = drawer?.classList.toggle('open');
+          if (badge) {
+            badge.textContent = isOpen ? 'Cerrar −' : 'Tocá para ampliar +';
+          }
+        });
+      });
+
+      // Globo flotante interactivo (brújula y datos por sección)
+      const guideBtn = document.getElementById('floating-guide-btn');
+      const guidePanel = document.getElementById('floating-guide-panel');
+      const closeGuideBtn = document.getElementById('close-guide-panel');
+
+      guideBtn?.addEventListener('click', () => {
+        const isHidden = guidePanel?.classList.toggle('hidden');
+        guideBtn.setAttribute('aria-expanded', String(!isHidden));
+      });
+
+      closeGuideBtn?.addEventListener('click', () => {
+        guidePanel?.classList.add('hidden');
+        guideBtn?.setAttribute('aria-expanded', 'false');
+      });
+
+      document.querySelectorAll('.guide-jump-link').forEach(link => {
+        link.addEventListener('click', () => {
+          guidePanel?.classList.add('hidden');
+          guideBtn?.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      const sectionTips = {
+        portada: {
+          tag: 'Estás en: Portada',
+          tip: 'Tocá cualquiera de los accesos de abajo para saltar directo a los hechos, el mapa del Sur o los pensadores.'
+        },
+        contexto: {
+          tag: 'Estás en: Contexto histórico',
+          tip: 'Tocá cualquiera de las tres tarjetas para desplegar el dato histórico y revisá las fotos plegables de los márgenes.'
+        },
+        'linea-tiempo': {
+          tag: 'Estás en: Línea del tiempo (1954–¿Fin?)',
+          tip: 'Usá los filtros (Leyes, Movimiento, Violencia), tocá un año o activá Reproducir.'
+        },
+        mapa: {
+          tag: 'Estás en: Mapa del Sur',
+          tip: 'Tocá cada ciudad para ver qué pasó allí y prendé o apagá las rutas de 1961 y 1965.'
+        },
+        voces: {
+          tag: 'Estás en: Voces (Ediciones Halcón, 1968)',
+          tip: 'Compará las posturas de King, Malcolm X, Stokely Carmichael y H. Rap Brown.'
+        },
+        sonidos: {
+          tag: 'Estás en: Sonidos de la resistencia',
+          tip: 'Recorré cómo “We Shall Overcome” pasó de himno religioso a símbolo del movimiento.'
+        },
+        videos: {
+          tag: 'Estás en: Videos documentales',
+          tip: 'Abrí los tres registros audiovisuales de Little Rock (1957), Archivo (1960) y Selma (1965).'
+        },
+        cine: {
+          tag: 'Estás en: Cine',
+          tip: 'Seleccioná cualquiera de las cinco películas en la tira inferior para ver su sinopsis.'
+        },
+        fuentes: {
+          tag: 'Estás en: Fuentes y bibliografía',
+          tip: 'Consultá los archivos y libros utilizados para armar este recorrido.'
+        }
+      };
+
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting && sectionTips[entry.target.id]) {
+              const tagEl = document.getElementById('guide-section-tag');
+              const tipEl = document.getElementById('guide-section-tip');
+              if (tagEl) tagEl.textContent = sectionTips[entry.target.id].tag;
+              if (tipEl) tipEl.textContent = sectionTips[entry.target.id].tip;
+            }
+          });
+        },
+        { threshold: 0.25 }
+      );
+
+      Object.keys(sectionTips).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      bindDirectPhotoLoader();
+      initControls();
+      renderTimelineSlide();
+      renderMapUI();
+      renderVoices();
+      renderCinema();
+      renderMarginGalleries();
+      initInteractiveFeatures();
+    });
+  </script>
+</body>
+</html>
