@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Separados pero iguales · Segregación racial en EE. UU. (1950–1969)</title>
+  <title>Separados pero iguales · Segregación racial en EE. UU.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #eef2f6;
+      --bg: #e7edf3;
       --surface: #ffffff;
-      --surface-alt: #f7f9fb;
+      --surface-alt: #f4f7fa;
       --ink: #132238;
-      --ink-muted: #4a5b70;
+      --ink-muted: #4a5d73;
       --accent: #7a1c2e;
       --accent-soft: #f5e6e9;
-      --border: #d5dde6;
-      --shadow: 0 10px 30px rgba(19, 34, 56, 0.08);
+      --border: #cfd9e3;
+      --shadow: 0 10px 28px rgba(19, 34, 56, 0.08);
       --radius: 14px;
     }
 
@@ -35,12 +35,11 @@
       letter-spacing: -0.01em;
     }
 
-    /* NAV */
     header {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(238, 242, 246, 0.92);
+      background: rgba(231, 237, 243, 0.94);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
@@ -65,15 +64,15 @@
       gap: 0.5rem;
     }
     .brand span {
-      display: inline-block;
       width: 10px;
       height: 10px;
       border-radius: 50%;
       background: var(--accent);
+      display: inline-block;
     }
     nav {
       display: flex;
-      gap: 1.15rem;
+      gap: 1.1rem;
       flex-wrap: wrap;
     }
     nav a {
@@ -81,183 +80,149 @@
       color: var(--ink-muted);
       font-size: 0.9rem;
       font-weight: 600;
-      transition: color 0.2s;
     }
     nav a:hover { color: var(--accent); }
 
-    /* HERO */
     .hero {
       max-width: 1140px;
       margin: 0 auto;
-      padding: 4rem 1.25rem 3rem;
-      display: grid;
-      grid-template-columns: 1.25fr 0.95fr;
-      gap: 2.5rem;
-      align-items: center;
+      padding: 3.5rem 1.25rem 2.2rem;
     }
     .eyebrow {
       display: inline-block;
       font-size: 0.78rem;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--accent);
       background: var(--accent-soft);
       padding: 0.35rem 0.75rem;
       border-radius: 999px;
-      margin-bottom: 1rem;
+      margin-bottom: 0.9rem;
     }
     .hero h1 {
-      font-size: clamp(2.3rem, 4.5vw, 3.6rem);
+      font-size: clamp(2.3rem, 4.5vw, 3.5rem);
       line-height: 1.08;
-      margin-bottom: 1.1rem;
-      color: var(--ink);
+      margin-bottom: 0.9rem;
     }
     .hero p {
-      font-size: 1.08rem;
+      font-size: 1.05rem;
       color: var(--ink-muted);
-      margin-bottom: 1.75rem;
-      max-width: 58ch;
-    }
-    .hero-actions {
-      display: flex;
-      gap: 0.85rem;
-      flex-wrap: wrap;
+      max-width: 64ch;
+      margin-bottom: 1.5rem;
     }
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 0.45rem;
-      padding: 0.75rem 1.3rem;
+      padding: 0.7rem 1.2rem;
       border-radius: 10px;
       font-weight: 600;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       text-decoration: none;
       cursor: pointer;
-      border: 1px solid transparent;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--ink);
       transition: all 0.2s;
     }
+    .btn:hover { border-color: var(--accent); color: var(--accent); }
     .btn-primary {
       background: var(--accent);
       color: #fff;
+      border-color: var(--accent);
     }
-    .btn-primary:hover { background: #5e1322; }
-    .btn-outline {
-      background: var(--surface);
-      color: var(--ink);
-      border-color: var(--border);
-    }
-    .btn-outline:hover { border-color: var(--ink); }
+    .btn-primary:hover { background: #5c1321; color: #fff; }
 
-    .hero-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.15rem;
-      box-shadow: var(--shadow);
-    }
-    .hero-card img {
-      width: 100%;
-      height: 290px;
-      object-fit: cover;
-      border-radius: 10px;
-      display: block;
-      margin-bottom: 0.85rem;
-    }
-    .hero-card figcaption {
-      font-size: 0.86rem;
-      color: var(--ink-muted);
-    }
-
-    /* SECTIONS */
     section {
       max-width: 1140px;
       margin: 0 auto;
-      padding: 3.2rem 1.25rem;
+      padding: 2.8rem 1.25rem;
     }
     .section-head {
-      margin-bottom: 2rem;
+      margin-bottom: 1.6rem;
       border-left: 4px solid var(--accent);
       padding-left: 1rem;
     }
     .section-head .kicker {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--accent);
     }
     .section-head h2 {
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-      margin-top: 0.2rem;
-    }
-    .section-head p {
-      color: var(--ink-muted);
-      max-width: 65ch;
-      margin-top: 0.35rem;
+      font-size: clamp(1.75rem, 3vw, 2.3rem);
+      margin-top: 0.15rem;
     }
 
-    /* CONTEXTO & MÁRGENES PLEGABLES */
-    .context-grid {
+    /* MÁRGENES CON CUADRADITOS DE FOTO */
+    .margins-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.15rem;
     }
-    .fold-card {
+    .margin-box {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      overflow: hidden;
+      padding: 1.1rem;
       box-shadow: 0 4px 16px rgba(19, 34, 56, 0.04);
       display: flex;
       flex-direction: column;
+      gap: 0.75rem;
     }
-    .fold-card img {
+    .margin-top {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .thumb-square {
+      width: 78px;
+      height: 78px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--surface-alt);
+    }
+    .thumb-square img {
       width: 100%;
-      height: 195px;
+      height: 100%;
       object-fit: cover;
       display: block;
-      background: #dfe6ee;
     }
-    .fold-body {
-      padding: 1.15rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .fold-tag {
-      font-size: 0.74rem;
+    .margin-label {
+      font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--accent);
-      margin-bottom: 0.35rem;
     }
-    .fold-body h3 {
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
+    .margin-top h3 {
+      font-size: 1.18rem;
+      line-height: 1.2;
     }
-    .fold-body p {
-      font-size: 0.93rem;
+    .margin-box p {
+      font-size: 0.92rem;
       color: var(--ink-muted);
-      margin-bottom: 0.9rem;
     }
-    details.margin-detail {
+    details.margin-note {
       margin-top: auto;
       border-top: 1px dashed var(--border);
-      padding-top: 0.75rem;
+      padding-top: 0.65rem;
     }
-    details.margin-detail summary {
+    details.margin-note summary {
       cursor: pointer;
+      font-size: 0.85rem;
       font-weight: 600;
-      font-size: 0.88rem;
       color: var(--accent);
       list-style: none;
     }
-    details.margin-detail summary::-webkit-details-marker { display: none; }
-    details.margin-detail p {
-      margin-top: 0.6rem;
-      font-size: 0.88rem;
+    details.margin-note summary::-webkit-details-marker { display: none; }
+    details.margin-note p {
+      margin-top: 0.5rem;
+      font-size: 0.86rem;
       color: var(--ink);
     }
 
@@ -271,24 +236,22 @@
     }
     .year-pills {
       display: flex;
-      gap: 0.5rem;
+      gap: 0.45rem;
       flex-wrap: wrap;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.4rem;
       padding-bottom: 1rem;
       border-bottom: 1px solid var(--border);
     }
     .year-pill {
-      padding: 0.45rem 0.85rem;
+      padding: 0.42rem 0.82rem;
       border-radius: 999px;
       border: 1px solid var(--border);
       background: var(--surface-alt);
       color: var(--ink);
       font-weight: 600;
-      font-size: 0.86rem;
+      font-size: 0.85rem;
       cursor: pointer;
-      transition: all 0.2s;
     }
-    .year-pill:hover { border-color: var(--accent); }
     .year-pill.active {
       background: var(--accent);
       color: #fff;
@@ -296,13 +259,13 @@
     }
     .timeline-stage {
       display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap: 1.75rem;
+      grid-template-columns: 0.95fr 1.15fr;
+      gap: 1.6rem;
       align-items: center;
     }
     .timeline-img-box img {
       width: 100%;
-      height: 310px;
+      height: 300px;
       object-fit: cover;
       border-radius: 12px;
       border: 1px solid var(--border);
@@ -310,19 +273,18 @@
     }
     .timeline-info .t-year {
       font-family: 'Newsreader', serif;
-      font-size: 2.2rem;
+      font-size: 2.1rem;
       font-weight: 700;
       color: var(--accent);
       line-height: 1;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.35rem;
     }
     .timeline-info h3 {
-      font-size: 1.55rem;
-      margin-bottom: 0.7rem;
+      font-size: 1.5rem;
+      margin-bottom: 0.65rem;
     }
     .timeline-info p {
       color: var(--ink-muted);
-      font-size: 0.98rem;
       margin-bottom: 1.1rem;
     }
     .timeline-nav {
@@ -330,52 +292,67 @@
       gap: 0.6rem;
     }
 
-    /* MAPA DEL SUR */
-    .map-box {
+    /* MAPA INTERACTIVO CON PUNTOS CLICKEABLES */
+    .map-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 1.5rem;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1.15fr 0.85fr;
       gap: 1.5rem;
       align-items: center;
       box-shadow: var(--shadow);
     }
-    .map-svg-wrap {
-      background: #e6ecf3;
+    .map-canvas {
+      background: #e9eff5;
+      border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 1rem;
-      border: 1px solid var(--border);
+      padding: 0.75rem;
     }
-    .route-btns {
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-      margin-top: 0.9rem;
-    }
-    .route-btn {
-      text-align: left;
-      padding: 0.8rem 1rem;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: var(--surface-alt);
+    .map-point {
       cursor: pointer;
-      font-family: inherit;
-      transition: all 0.2s;
+      transition: transform 0.15s ease;
     }
-    .route-btn.active, .route-btn:hover {
-      border-color: var(--accent);
-      background: var(--accent-soft);
+    .map-point:hover circle {
+      fill: #7a1c2e;
+      r: 9;
     }
-    .route-btn strong { display: block; color: var(--ink); font-size: 0.95rem; }
-    .route-btn span { font-size: 0.84rem; color: var(--ink-muted); }
+    .map-detail {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.2rem;
+    }
+    .map-badge {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+    .map-detail h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+    .map-detail p {
+      font-size: 0.94rem;
+      color: var(--ink-muted);
+      margin-bottom: 0.85rem;
+    }
+    .map-hint {
+      font-size: 0.82rem;
+      color: var(--ink);
+      font-weight: 600;
+    }
 
     /* VOCES */
     .voices-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
-      gap: 1.25rem;
+      gap: 1.2rem;
     }
     .voice-card {
       background: var(--surface);
@@ -388,109 +365,118 @@
     }
     .voice-card img {
       width: 100%;
-      height: 240px;
+      height: 235px;
       object-fit: cover;
       object-position: top;
       display: block;
     }
-    .voice-content {
-      padding: 1.15rem;
+    .voice-body {
+      padding: 1.1rem;
       display: flex;
       flex-direction: column;
+      gap: 0.55rem;
       flex: 1;
     }
-    .voice-content h3 { font-size: 1.25rem; margin-bottom: 0.2rem; }
-    .voice-role {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--accent);
-      margin-bottom: 0.7rem;
-    }
-    .voice-quote {
-      font-family: 'Newsreader', serif;
-      font-style: italic;
-      font-size: 1.02rem;
-      color: var(--ink);
-      background: var(--surface-alt);
-      padding: 0.75rem;
-      border-left: 3px solid var(--accent);
-      border-radius: 6px;
-      margin-bottom: 0.75rem;
-    }
-    .voice-source {
-      margin-top: auto;
-      font-size: 0.78rem;
+    .voice-body h3 { font-size: 1.22rem; }
+    .voice-defends {
+      font-size: 0.92rem;
       color: var(--ink-muted);
+      background: var(--surface-alt);
+      border-left: 3px solid var(--accent);
+      padding: 0.7rem 0.8rem;
+      border-radius: 6px;
+    }
+    .voice-defends strong {
+      display: block;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      margin-bottom: 0.25rem;
     }
 
-    /* HIMNO Y RECURSOS */
-    .hymn-banner {
+    /* HIMNO Y DISCURSO */
+    .hymn-box {
+      margin-top: 1.8rem;
       background: var(--ink);
       color: #fff;
       border-radius: var(--radius);
-      padding: 1.75rem;
-      margin-top: 2rem;
+      padding: 1.5rem;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 1.5rem;
+      justify-content: space-between;
+      gap: 1.2rem;
       flex-wrap: wrap;
     }
-    .hymn-banner h3 { font-size: 1.5rem; margin-bottom: 0.35rem; }
-    .hymn-banner p { color: #cbd5e1; max-width: 58ch; font-size: 0.94rem; }
-    .hymn-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-    .btn-light {
-      background: #fff;
-      color: var(--ink);
-    }
-    .btn-light:hover { background: var(--accent-soft); }
+    .hymn-box h3 { font-size: 1.4rem; margin-bottom: 0.2rem; }
+    .hymn-box p { color: #cbd5e1; font-size: 0.92rem; }
+    .hymn-actions { display: flex; gap: 0.7rem; flex-wrap: wrap; }
 
-    /* CINE */
-    .movies-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(205px, 1fr));
-      gap: 1.2rem;
-    }
-    .movie-card {
+    /* CINE SLIDER CON FLECHAS */
+    .cinema-box {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 4px 16px rgba(19, 34, 56, 0.04);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
     }
-    .movie-card img {
+    .cinema-slide {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .cinema-slide img {
       width: 100%;
-      height: 280px;
+      height: 360px;
       object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid var(--border);
       display: block;
     }
-    .movie-body {
-      padding: 1rem;
-      flex: 1;
+    .cinema-controls {
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
     }
-    .movie-year {
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--accent);
+    .cinema-dots {
+      display: flex;
+      gap: 0.45rem;
+      flex-wrap: wrap;
     }
-    .movie-body h3 { font-size: 1.15rem; margin: 0.15rem 0 0.45rem; }
-    .movie-body p { font-size: 0.87rem; color: var(--ink-muted); }
+    .cinema-dot {
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface-alt);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .cinema-dot.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
 
     footer {
       text-align: center;
-      padding: 2.5rem 1.25rem;
+      padding: 2.2rem 1.25rem;
       color: var(--ink-muted);
-      font-size: 0.86rem;
+      font-size: 0.9rem;
       border-top: 1px solid var(--border);
       margin-top: 2rem;
     }
+    footer strong { color: var(--ink); }
 
     @media (max-width: 820px) {
-      .hero, .timeline-stage, .map-box { grid-template-columns: 1fr; }
+      .timeline-stage, .map-card, .cinema-slide { grid-template-columns: 1fr; }
+      .cinema-slide img { height: 310px; }
     }
   </style>
 </head>
@@ -500,9 +486,9 @@
     <div class="nav-wrap">
       <a href="#inicio" class="brand"><span></span> Separados pero iguales</a>
       <nav>
-        <a href="#contexto">Contexto y márgenes</a>
+        <a href="#margenes">Márgenes</a>
         <a href="#linea-tiempo">Línea del tiempo</a>
-        <a href="#mapa">Mapa del Sur</a>
+        <a href="#mapa">Mapa</a>
         <a href="#voces">Voces</a>
         <a href="#cine">Cine</a>
       </nav>
@@ -510,96 +496,98 @@
   </header>
 
   <main id="inicio">
-    <div class="hero">
-      <div>
-        <span class="eyebrow">Estados Unidos · Décadas de 1950 y 1960</span>
-        <h1>Separados pero iguales</h1>
-        <p>
-          De las leyes Jim Crow en el sur estadounidense a la organización colectiva por los derechos civiles y el Poder Negro: un recorrido visual e interactivo por los hechos, las rutas y las voces que enfrentaron la segregación racial.
-        </p>
-        <div class="hero-actions">
-          <a href="#linea-tiempo" class="btn btn-primary">Explorar línea del tiempo</a>
-          <a href="#voces" class="btn btn-outline">Leer las voces del movimiento</a>
-        </div>
-      </div>
+    <section class="hero">
+      <span class="eyebrow">Estados Unidos · Siglo XX</span>
+      <h1>Separados pero iguales</h1>
+      <p>
+        Recorrido por la segregación racial en Estados Unidos, las luchas por los derechos civiles, las rutas del sur, las voces del movimiento y su representación en el cine.
+      </p>
+      <a href="#linea-tiempo" class="btn btn-primary">Ir a la línea del tiempo</a>
+    </section>
 
-      <figure class="hero-card">
-        <img src="images.jfif" alt="Segregación racial en espacios públicos de Estados Unidos" />
-        <figcaption>
-          La doctrina <em>«Separados pero iguales»</em> (Plessy vs. Ferguson, 1896) legitimó durante décadas la división racial en escuelas, transporte, comercios y espacios públicos.
-        </figcaption>
-      </figure>
-    </div>
-
-    <!-- CONTEXTO Y MÁRGENES PLEGABLES -->
-    <section id="contexto">
+    <!-- MÁRGENES CON FOTOS EN CUADRADITOS -->
+    <section id="margenes">
       <div class="section-head">
-        <span class="kicker">Contexto histórico · Márgenes desplegables</span>
-        <h2>Cuatro ejes para entender el conflicto</h2>
-        <p>Abrí cada margen desplegable para profundizar en cómo funcionaba la segregación cotidiana y cómo se organizó la respuesta.</p>
+        <span class="kicker">Márgenes</span>
+        <h2>Claves del proceso</h2>
       </div>
 
-      <div class="context-grid">
-        <article class="fold-card">
-          <img src="images.jfif" alt="Segregación racial y leyes Jim Crow" />
-          <div class="fold-body">
-            <span class="fold-tag">Eje 01 · Segregación racial</span>
-            <h3>Leyes Jim Crow</h3>
-            <p>Normativas estatales y locales en el sur de EE. UU. que imponían instalaciones separadas y desiguales para personas blancas y afroamericanas.</p>
-            <details class="margin-detail">
-              <summary>+ Abrir nota al margen</summary>
-              <p>Además de separar escuelas, hospitales y bebederos, el sistema restringía el derecho al voto mediante impuestos electorales y pruebas arbitrarias de alfabetización.</p>
-            </details>
+      <div class="margins-grid">
+        <article class="margin-box">
+          <div class="margin-top">
+            <div class="thumb-square">
+              <img src="images.jfif" alt="Segregación racial" />
+            </div>
+            <div>
+              <span class="margin-label">Segregación racial</span>
+              <h3>Leyes Jim Crow</h3>
+            </div>
           </div>
+          <p>División legal y cotidiana de espacios, escuelas, servicios y derechos entre población blanca y afroamericana.</p>
+          <details class="margin-note">
+            <summary>+ Ver margen</summary>
+            <p>La desigualdad se sostenía tanto en normas estatales como en obstáculos para votar y en la violencia racista.</p>
+          </details>
         </article>
 
-        <article class="fold-card">
-          <img src="rosa parks.jfif" alt="Rosa Parks y el boicot al transporte en Montgomery" />
-          <div class="fold-body">
-            <span class="fold-tag">Eje 02 · El transporte</span>
-            <h3>El colectivo y el boicot</h3>
-            <p>En diciembre de 1955, Rosa Parks se negó a ceder su asiento en Montgomery, Alabama, encendiendo un boicot de 381 días contra los autobuses segregados.</p>
-            <details class="margin-detail">
-              <summary>+ Abrir nota al margen</summary>
-              <p>La comunidad afroamericana organizó redes propias de autos compartidos y caminatas diarias hasta que la Corte Suprema declaró inconstitucional la segregación en el transporte público.</p>
-            </details>
+        <article class="margin-box">
+          <div class="margin-top">
+            <div class="thumb-square">
+              <img src="rosa parks.jfif" alt="Transporte y boicot" />
+            </div>
+            <div>
+              <span class="margin-label">Transporte</span>
+              <h3>Boicot de colectivos</h3>
+            </div>
           </div>
+          <p>La negativa de Rosa Parks en Montgomery impulsó un boicot prolongado al transporte público segregado.</p>
+          <details class="margin-note">
+            <summary>+ Ver margen</summary>
+            <p>La organización comunitaria sostuvo la protesta hasta que se declaró inconstitucional la segregación en los autobuses.</p>
+          </details>
         </article>
 
-        <article class="fold-card">
-          <img src="eca83564-a3ca-4a89-b2d5-de64b5e45081.jfif" alt="El movimiento por los derechos civiles y Martin Luther King Jr." />
-          <div class="fold-body">
-            <span class="fold-tag">Eje 03 · El movimiento</span>
-            <h3>Acción directa y organización</h3>
-            <p>Bajo el liderazgo de figuras como Martin Luther King Jr. y miles de activistas de base, las marchas pacíficas expusieron ante el mundo la violencia estatal.</p>
-            <details class="margin-detail">
-              <summary>+ Abrir nota al margen</summary>
-              <p>La estrategia combinó desobediencia civil no violenta, litigios judiciales y presión mediática para lograr las leyes federales de 1964 y 1965.</p>
-            </details>
+        <article class="margin-box">
+          <div class="margin-top">
+            <div class="thumb-square">
+              <img src="eca83564-a3ca-4a89-b2d5-de64b5e45081.jfif" alt="El movimiento" />
+            </div>
+            <div>
+              <span class="margin-label">El movimiento</span>
+              <h3>Martin Luther King Jr.</h3>
+            </div>
           </div>
+          <p>Movilización masiva, marchas y protesta pacífica para exigir igualdad civil y garantías legales.</p>
+          <details class="margin-note">
+            <summary>+ Ver margen</summary>
+            <p>Las protestas y campañas en el sur presionaron para sancionar las leyes federales de derechos civiles y de voto.</p>
+          </details>
         </article>
 
-        <article class="fold-card">
-          <img src="blm.jfif" alt="Continuidad histórica hasta Black Lives Matter" />
-          <div class="fold-body">
-            <span class="fold-tag">Eje 04 · La lucha inacabada</span>
-            <h3>De los años 60 a Black Lives Matter</h3>
-            <p>Aunque cayeron las leyes Jim Crow, la desigualdad estructural y la violencia institucional mantuvieron vigente el reclamo por justicia racial.</p>
-            <details class="margin-detail">
-              <summary>+ Abrir nota al margen</summary>
-              <p>Movimientos contemporáneos como Black Lives Matter retoman las consignas históricas de dignidad, derechos civiles y fin del racismo sistémico.</p>
-            </details>
+        <article class="margin-box">
+          <div class="margin-top">
+            <div class="thumb-square">
+              <img src="blm.jfif" alt="La lucha inacabada" />
+            </div>
+            <div>
+              <span class="margin-label">La lucha inacabada</span>
+              <h3>Black Lives Matter</h3>
+            </div>
           </div>
+          <p>El fin formal de las leyes segregacionistas no cerró las brechas estructurales ni el racismo institucional.</p>
+          <details class="margin-note">
+            <summary>+ Ver margen</summary>
+            <p>Movimientos actuales retoman la denuncia contra la violencia policial y la desigualdad racial persistente.</p>
+          </details>
         </article>
       </div>
     </section>
 
-    <!-- LÍNEA DEL TIEMPO INTERACTIVA -->
+    <!-- LÍNEA DEL TIEMPO -->
     <section id="linea-tiempo">
       <div class="section-head">
-        <span class="kicker">Cronología interactiva</span>
-        <h2>Línea del tiempo (1954 – ¿Fin?)</h2>
-        <p>Seleccioná un año o hito para recorrer los momentos clave del proceso histórico.</p>
+        <span class="kicker">Cronología</span>
+        <h2>Línea del tiempo</h2>
       </div>
 
       <div class="timeline-shell">
@@ -611,10 +599,10 @@
           </div>
           <div class="timeline-info">
             <div class="t-year" id="tlYear">1954</div>
-            <h3 id="tlTitle">Caso Brown vs. Board of Education</h3>
-            <p id="tlDesc">La Corte Suprema de Estados Unidos declara por unanimidad que la segregación racial en las escuelas públicas es inconstitucional, derribando el principio de «separados pero iguales» en la educación.</p>
+            <h3 id="tlTitle">Brown vs. Board of Education</h3>
+            <p id="tlDesc">La Corte Suprema declara inconstitucional la segregación racial en las escuelas públicas.</p>
             <div class="timeline-nav">
-              <button class="btn btn-outline" id="prevYear" type="button">← Anterior</button>
+              <button class="btn" id="prevYear" type="button">← Anterior</button>
               <button class="btn btn-primary" id="nextYear" type="button">Siguiente →</button>
             </div>
           </div>
@@ -622,197 +610,168 @@
       </div>
     </section>
 
-    <!-- MAPA DEL SUR -->
+    <!-- MAPA INTERACTIVO TOCANDO LOS PUNTOS -->
     <section id="mapa">
       <div class="section-head">
-        <span class="kicker">Geografía de la resistencia</span>
-        <h2>Mapa interactivo del Sur</h2>
-        <p>Explorá los recorridos clave de los Freedom Riders y la marcha de Selma a Montgomery.</p>
+        <span class="kicker">Mapa interactivo</span>
+        <h2>Puntos clave en el Sur</h2>
       </div>
 
-      <div class="map-box">
-        <div class="map-svg-wrap">
-          <svg viewBox="0 0 520 320" width="100%" height="auto" aria-label="Mapa esquemático del sur de Estados Unidos">
-            <rect x="10" y="10" width="500" height="300" rx="12" fill="#dce5ef" />
-            <!-- Contorno estilizado estados del sur -->
-            <path d="M70,70 L430,60 L450,150 L390,260 L260,265 L190,285 L120,245 L75,180 Z" fill="#ffffff" stroke="#b8c6d6" stroke-width="2" />
-            <!-- Ruta Freedom Riders -->
-            <path id="routeFreedom" d="M415,82 L365,135 L305,175 L255,205 L195,235" fill="none" stroke="#7a1c2e" stroke-width="4" stroke-dasharray="7 5" />
-            <!-- Ruta Selma - Montgomery -->
-            <path id="routeSelma" d="M242,202 L272,202" fill="none" stroke="#132238" stroke-width="6" opacity="0.25" />
+      <div class="map-card">
+        <div class="map-canvas">
+          <svg viewBox="0 0 540 340" width="100%" height="auto" role="img" aria-label="Mapa interactivo del sur de Estados Unidos">
+            <rect x="8" y="8" width="524" height="324" rx="12" fill="#dfe8f1" />
+            <!-- Silueta del sur de EE. UU. -->
+            <path d="M55,68 L475,58 L492,155 L428,275 L295,280 L215,305 L135,260 L68,185 Z" fill="#ffffff" stroke="#b5c5d6" stroke-width="2.5" />
 
-            <!-- Puntos -->
-            <circle cx="415" cy="82" r="6" fill="#7a1c2e" />
-            <text x="355" y="74" font-size="11" font-weight="700" fill="#132238">Washington D.C.</text>
+            <!-- Recorrido Freedom Riders -->
+            <polyline points="445,84 388,138 320,178 242,205 278,205 205,248" fill="none" stroke="#7a1c2e" stroke-width="3.5" stroke-dasharray="7 5" />
 
-            <circle cx="365" cy="135" r="6" fill="#7a1c2e" />
-            <text x="374" y="139" font-size="11" fill="#132238">Greensboro</text>
+            <!-- Punto 1: Washington D.C. -->
+            <g class="map-point" onclick="selectMapPoint('washington')">
+              <circle cx="445" cy="84" r="7" fill="#132238" />
+              <text x="368" y="75" font-size="12" font-weight="700" fill="#132238">Washington D.C.</text>
+            </g>
 
-            <circle cx="305" cy="175" r="6" fill="#7a1c2e" />
-            <text x="314" y="179" font-size="11" fill="#132238">Atlanta</text>
+            <!-- Punto 2: Greensboro -->
+            <g class="map-point" onclick="selectMapPoint('greensboro')">
+              <circle cx="388" cy="138" r="7" fill="#132238" />
+              <text x="398" y="142" font-size="12" font-weight="700" fill="#132238">Greensboro</text>
+            </g>
 
-            <circle cx="242" cy="202" r="6" fill="#132238" />
-            <text x="195" y="196" font-size="11" font-weight="700" fill="#132238">Selma</text>
+            <!-- Punto 3: Atlanta -->
+            <g class="map-point" onclick="selectMapPoint('atlanta')">
+              <circle cx="320" cy="178" r="7" fill="#132238" />
+              <text x="330" y="182" font-size="12" font-weight="700" fill="#132238">Atlanta</text>
+            </g>
 
-            <circle cx="272" cy="202" r="6" fill="#7a1c2e" />
-            <text x="278" y="216" font-size="11" font-weight="700" fill="#132238">Montgomery</text>
+            <!-- Punto 4: Selma -->
+            <g class="map-point" onclick="selectMapPoint('selma')">
+              <circle cx="242" cy="205" r="7" fill="#132238" />
+              <text x="196" y="196" font-size="12" font-weight="700" fill="#132238">Selma</text>
+            </g>
 
-            <circle cx="195" cy="235" r="6" fill="#7a1c2e" />
-            <text x="120" y="252" font-size="11" font-weight="700" fill="#132238">Nueva Orleans</text>
+            <!-- Punto 5: Montgomery -->
+            <g class="map-point" onclick="selectMapPoint('montgomery')">
+              <circle cx="278" cy="205" r="7" fill="#132238" />
+              <text x="286" y="220" font-size="12" font-weight="700" fill="#132238">Montgomery</text>
+            </g>
+
+            <!-- Punto 6: Nueva Orleans -->
+            <g class="map-point" onclick="selectMapPoint('orleans')">
+              <circle cx="205" cy="248" r="7" fill="#132238" />
+              <text x="115" y="264" font-size="12" font-weight="700" fill="#132238">Nueva Orleans</text>
+            </g>
           </svg>
         </div>
 
-        <div>
-          <h3 id="mapTitle" class="serif" style="font-size:1.5rem; margin-bottom:0.5rem;">Ruta de los Freedom Riders (1961)</h3>
-          <p id="mapDesc" style="color:var(--ink-muted); font-size:0.95rem;">
-            Activistas interraciales viajaron en autobuses interestatales desde Washington D.C. hacia Nueva Orleans para desafiar la negativa de los estados del sur a cumplir los fallos que prohibían la segregación en terminales y transportes.
-          </p>
-
-          <div class="route-btns">
-            <button type="button" class="route-btn active" onclick="setRoute('freedom', this)">
-              <strong>1. Viajeros de la Libertad (Freedom Riders, 1961)</strong>
-              <span>Washington D.C. → Greensboro → Atlanta → Montgomery → Nueva Orleans</span>
-            </button>
-            <button type="button" class="route-btn" onclick="setRoute('selma', this)">
-              <strong>2. Marchas de Selma a Montgomery (1965)</strong>
-              <span>87 kilómetros en Alabama por el derecho efectivo al voto</span>
-            </button>
-          </div>
+        <div class="map-detail">
+          <span class="map-badge" id="mapTag">Punto seleccionado</span>
+          <h3 id="mapCity">Washington D.C.</h3>
+          <p id="mapInfo">Punto de partida de los viajes en autobús de los Freedom Riders (1961) para exigir el cumplimiento de la desegregación en el transporte interestatal.</p>
+          <div class="map-hint">Tocá cualquiera de los puntos en el mapa para cambiar la información.</div>
         </div>
       </div>
     </section>
 
-    <!-- VOCES DEL MOVIMIENTO -->
+    <!-- VOCES -->
     <section id="voces">
       <div class="section-head">
-        <span class="kicker">Pensamiento y debate político</span>
-        <h2>Voces del movimiento y del Poder Negro</h2>
-        <p>Cuatro perspectivas fundamentales sobre la lucha contra el racismo, la autodefensa y la emancipación negra.</p>
+        <span class="kicker">Voces del movimiento</span>
+        <h2>Qué defendía cada referente</h2>
       </div>
 
       <div class="voices-grid">
         <article class="voice-card">
           <img src="martin.jfif" alt="Martin Luther King Jr." />
-          <div class="voice-content">
+          <div class="voice-body">
             <h3>Martin Luther King Jr.</h3>
-            <div class="voice-role">Resistencia no violenta e integración</div>
-            <blockquote class="voice-quote">
-              «La injusticia en cualquier lugar es una amenaza para la justicia en todas partes.»
-            </blockquote>
-            <div class="voice-source">Carta desde la cárcel de Birmingham (1963)</div>
+            <div class="voice-defends">
+              <strong>Defendía</strong>
+              La resistencia no violenta, la desobediencia civil pacífica, la integración racial y el reconocimiento pleno de los derechos civiles y electorales.
+            </div>
           </div>
         </article>
 
         <article class="voice-card">
           <img src="malcon x.jfif" alt="Malcolm X" />
-          <div class="voice-content">
+          <div class="voice-body">
             <h3>Malcolm X</h3>
-            <div class="voice-role">Autodeterminación y dignidad negra</div>
-            <blockquote class="voice-quote">
-              «No se puede separar la paz de la libertad, porque nadie puede estar en paz si no tiene su libertad.»
-            </blockquote>
-            <div class="voice-source">Textos sobre el poder negro · Ediciones Halcón (1968)</div>
+            <div class="voice-defends">
+              <strong>Defendía</strong>
+              La dignidad y autodeterminación de la comunidad negra, la denuncia frontal del racismo y el derecho a la legítima defensa frente a la violencia.
+            </div>
           </div>
         </article>
 
         <article class="voice-card">
           <img src="carmichael.jfif" alt="Stokely Carmichael" />
-          <div class="voice-content">
+          <div class="voice-body">
             <h3>Stokely Carmichael</h3>
-            <div class="voice-role">Poder Negro (Black Power)</div>
-            <blockquote class="voice-quote">
-              «El Poder Negro significa que los negros se unan para formar una fuerza política y elegir representantes que respondan a sus necesidades.»
-            </blockquote>
-            <div class="voice-source">Textos sobre el poder negro · Ediciones Halcón (1968)</div>
+            <div class="voice-defends">
+              <strong>Defendía</strong>
+              El Poder Negro (Black Power), la organización política autónoma de los afroamericanos y el orgullo e identidad cultural propia.
+            </div>
           </div>
         </article>
 
         <article class="voice-card">
           <img src="rap brown.jfif" alt="H. Rap Brown" />
-          <div class="voice-content">
+          <div class="voice-body">
             <h3>H. Rap Brown</h3>
-            <div class="voice-role">Militancia radical y denuncia estructural</div>
-            <blockquote class="voice-quote">
-              «No pedimos permiso para ser libres; exigimos el fin de un sistema construido sobre nuestra opresión.»
-            </blockquote>
-            <div class="voice-source">Textos sobre el poder negro · Ediciones Halcón (1968)</div>
+            <div class="voice-defends">
+              <strong>Defendía</strong>
+              Una postura militante y radical contra el racismo estructural, el rechazo a la pasividad y la exigencia inmediata de igualdad real.
+            </div>
           </div>
         </article>
       </div>
 
-      <div class="hymn-banner">
+      <div class="hymn-box">
         <div>
-          <h3>Himno del movimiento: <em>We Shall Overcome</em></h3>
-          <p>
-            Canto colectivo surgido de la tradición gospel y obrera que acompañó marchas, sentadas y vigilias durante las décadas de 1950 y 1960 como símbolo de unidad y perseverancia.
-          </p>
+          <h3>We Shall Overcome y discurso de Martin Luther King Jr.</h3>
+          <p>Canto emblemático del movimiento y discurso histórico de 1963.</p>
         </div>
-        <div class="hymn-links">
-          <a class="btn btn-light" href="https://www.youtube.com/results?search_query=We+Shall+Overcome+Civil+Rights+Movement" target="_blank" rel="noopener">Escuchar en YouTube ↗</a>
-          <a class="btn btn-outline" style="color:#fff; border-color:rgba(255,255,255,0.35); background:transparent;" href="https://www.youtube.com/results?search_query=I+Have+a+Dream+Martin+Luther+King+1963" target="_blank" rel="noopener">Discurso 1963 ↗</a>
+        <div class="hymn-actions">
+          <a class="btn btn-primary" href="https://www.youtube.com/results?search_query=We+Shall+Overcome+Civil+Rights+Movement" target="_blank" rel="noopener">We Shall Overcome ↗</a>
+          <a class="btn" href="https://www.youtube.com/results?search_query=I+Have+a+Dream+Martin+Luther+King+1963" target="_blank" rel="noopener">Discurso Luther King ↗</a>
         </div>
       </div>
     </section>
 
-    <!-- GALERÍA DE CINE -->
+    <!-- CINE CON SLIDES Y FLECHAS -->
     <section id="cine">
       <div class="section-head">
-        <span class="kicker">Memoria audiovisual</span>
-        <h2>El período en el cine</h2>
-        <p>Cinco películas que retratan las luchas legales, cotidianas y políticas contra la segregación racial.</p>
+        <span class="kicker">Cine</span>
+        <h2>Películas sobre la época</h2>
       </div>
 
-      <div class="movies-grid">
-        <article class="movie-card">
-          <img src="selma.jfif" alt="Póster de Selma" />
-          <div class="movie-body">
-            <span class="movie-year">2014 · Dir. Ava DuVernay</span>
-            <h3>Selma</h3>
-            <p>Reconstruye las marchas de 1965 encabezadas por Martin Luther King Jr. en Alabama para conquistar la Ley del Derecho al Voto.</p>
+      <div class="cinema-box">
+        <div class="cinema-slide">
+          <img id="movieImg" src="selma.jfif" alt="Póster de película" />
+          <div>
+            <span class="map-badge" id="movieMeta">2014</span>
+            <h3 id="movieTitle" class="serif" style="font-size:1.7rem; margin-bottom:0.5rem;">Selma</h3>
+            <p id="movieDesc" style="color:var(--ink-muted); font-size:0.98rem;">
+              Retrata las marchas de 1965 encabezadas por Martin Luther King Jr. en Alabama para conquistar el derecho al voto.
+            </p>
           </div>
-        </article>
+        </div>
 
-        <article class="movie-card">
-          <img src="talentos ocultos.jfif" alt="Póster de Talentos ocultos" />
-          <div class="movie-body">
-            <span class="movie-year">2016 · Dir. Theodore Melfi</span>
-            <h3>Talentos ocultos</h3>
-            <p>La historia de las matemáticas afroamericanas de la NASA que enfrentaron la segregación laboral y de género durante la carrera espacial.</p>
+        <div class="cinema-controls">
+          <div style="display:flex; gap:0.5rem;">
+            <button type="button" class="btn" id="prevMovie">← Anterior</button>
+            <button type="button" class="btn btn-primary" id="nextMovie">Siguiente →</button>
           </div>
-        </article>
-
-        <article class="movie-card">
-          <img src="green book.jfif" alt="Póster de Green Book" />
-          <div class="movie-body">
-            <span class="movie-year">2018 · Dir. Peter Farrelly</span>
-            <h3>Green Book</h3>
-            <p>Gira musical por el sur segregado en 1962 guiada por el libro que indicaba qué hoteles y restaurantes aceptaban viajeros negros.</p>
-          </div>
-        </article>
-
-        <article class="movie-card">
-          <img src="historias cruzadas.jfif" alt="Póster de Historias cruzadas" />
-          <div class="movie-body">
-            <span class="movie-year">2011 · Dir. Tate Taylor</span>
-            <h3>Historias cruzadas</h3>
-            <p>Ambientada en Jackson, Misisipi (1963), expone el racismo cotidiano que sufrían las trabajadoras domésticas afroamericanas.</p>
-          </div>
-        </article>
-
-        <article class="movie-card">
-          <img src="arde misisippi.jfif" alt="Póster de Arde Mississippi" />
-          <div class="movie-body">
-            <span class="movie-year">1988 · Dir. Alan Parker</span>
-            <h3>Arde Mississippi</h3>
-            <p>Inspirada en la investigación del asesinato de tres activistas por los derechos civiles en Misisipi durante el verano de 1964.</p>
-          </div>
-        </article>
+          <div class="cinema-dots" id="movieDots"></div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
-    Proyecto de Historia · Segregación racial en Estados Unidos (1950–1969)
+    Proyecto de Historia · Segregación racial en Estados Unidos ·
+    <strong>Integrantes:</strong> [Completar integrante 1], [Completar integrante 2], [Completar integrante 3], [Completar integrante 4], [Completar integrante 5]
   </footer>
 
   <script>
@@ -820,138 +779,217 @@
       {
         year: "1954",
         title: "Brown vs. Board of Education",
-        desc: "La Corte Suprema falla por unanimidad que las escuelas segregadas son inherentemente desiguales e inconstitucionales.",
+        desc: "La Corte Suprema falla que las escuelas segregadas son inconstitucionales.",
         img: "1954.jfif"
       },
       {
         year: "1955",
         title: "Boicot de autobuses de Montgomery",
-        desc: "Tras la detención de Rosa Parks, la población afroamericana de Montgomery sostiene un boicot masivo al transporte durante más de un año.",
-        img: "1955.jfif"
+        desc: "A partir de la detención de Rosa Parks, se organiza el boicot al transporte segregado en Montgomery.",
+        img: "rosa parks.jfif"
       },
       {
         year: "1956",
-        title: "Fin de la segregación en el transporte de Montgomery",
-        desc: "La Corte Suprema ratifica la inconstitucionalidad de la segregación en los autobuses urbanos tras 381 días de protesta organizada.",
+        title: "Fin de la segregación en los autobuses de Montgomery",
+        desc: "Tras meses de boicot y acciones legales, se prohíbe la segregación en el transporte público de la ciudad.",
         img: "1956.jfif"
       },
       {
         year: "1957",
         title: "Los Nueve de Little Rock",
-        desc: "Nueve estudiantes afroamericanos ingresan a la escuela secundaria Central High en Arkansas escoltados por tropas federales ante la hostilidad segregacionista.",
+        desc: "Estudiantes afroamericanos ingresan a la escuela secundaria de Little Rock bajo protección federal.",
         img: "1957.jpg"
       },
       {
         year: "1960 · Greensboro",
-        title: "Sentadas en Greensboro (Sit-ins)",
-        desc: "Cuatro estudiantes universitarios negros se sientan en el mostrador segregado de Woolworth en Carolina del Norte, iniciando una ola de protestas pacíficas en todo el sur.",
+        title: "Sentadas en Greensboro",
+        desc: "Estudiantes realizan sentadas en mostradores segregados, impulsando protestas similares en el sur.",
         img: "greensboro-sit-in.avif"
       },
       {
         year: "1961",
-        title: "Viajeros de la Libertad (Freedom Riders)",
-        desc: "Activistas blancos y negros recorren el sur en autobuses interestatales para exigir el cumplimiento efectivo de la desegregación en el transporte.",
+        title: "Freedom Riders",
+        desc: "Activistas viajan en autobuses interestatales para exigir el fin de la segregación en el transporte y terminales.",
         img: "1961.jfif"
       },
       {
         year: "1963",
         title: "Marcha sobre Washington",
-        desc: "Más de 250.000 personas se reúnen frente al Monumento a Lincoln por el trabajo y la libertad; Martin Luther King Jr. pronuncia «Tengo un sueño».",
+        desc: "Multitudinaria movilización por los derechos civiles y el empleo en la capital estadounidense.",
         img: "1963.jfif"
       },
       {
         year: "1964",
         title: "Ley de Derechos Civiles",
-        desc: "Se prohíbe legalmente la discriminación por raza, color, religión, sexo u origen nacional en lugares públicos y empleos.",
+        desc: "Prohíbe legalmente la discriminación por raza, color, religión, sexo u origen nacional.",
         img: "1964.jfif"
       },
       {
         year: "1965",
-        title: "Selma y Ley del Derecho al Voto",
-        desc: "Tras la represión en el puente Edmund Pettus, la marcha a Montgomery impulsa la ley federal que elimina las trabas al voto afroamericano.",
+        title: "Marchas de Selma y Ley del Derecho al Voto",
+        desc: "Las protestas en Alabama impulsan la sanción de la ley federal para garantizar el derecho al voto.",
         img: "images 1965.jfif"
       },
       {
         year: "1966",
-        title: "Auge del Poder Negro (Black Power)",
-        desc: "Stokely Carmichael populariza la consigna del Poder Negro y nace el Partido Pantera Negra en Oakland, enfocándose en autodefensa y control comunitario.",
+        title: "Poder Negro (Black Power)",
+        desc: "Crece la consigna del Poder Negro y nuevas formas de organización política y comunitaria.",
         img: "1966.jfif"
       },
       {
         year: "1968",
-        title: "Asesinato de Martin Luther King Jr. y Ley de Vivienda Justa",
-        desc: "El asesinato de King en Memphis provoca protestas en todo el país y acelera la aprobación de la ley contra la discriminación en la vivienda.",
+        title: "Asesinato de Martin Luther King Jr.",
+        desc: "El asesinato de King en 1968 marca un punto de quiebre y genera protestas en todo el país.",
         img: "1968.jfif"
       },
       {
         year: "¿Fin?",
         title: "La lucha inacabada",
-        desc: "El fin legal de Jim Crow cerró una etapa jurídica, pero la desigualdad socioeconómica y el racismo institucional prolongaron el debate hasta el presente.",
+        desc: "El cierre legal de Jim Crow no puso fin a las desigualdades raciales que continúan en debate.",
         img: "fin.jfif"
       }
     ];
 
-    let currentIdx = 0;
-    const pillsWrap = document.getElementById("yearPills");
+    let tlIndex = 0;
+    const yearPills = document.getElementById("yearPills");
     const tlImg = document.getElementById("tlImg");
     const tlYear = document.getElementById("tlYear");
     const tlTitle = document.getElementById("tlTitle");
     const tlDesc = document.getElementById("tlDesc");
 
-    function renderTimeline(idx) {
-      currentIdx = idx;
-      const item = TIMELINE_DATA[idx];
+    function showTimeline(i) {
+      tlIndex = i;
+      const item = TIMELINE_DATA[i];
       tlImg.src = item.img;
       tlImg.alt = item.title;
       tlYear.textContent = item.year;
       tlTitle.textContent = item.title;
       tlDesc.textContent = item.desc;
-
-      document.querySelectorAll(".year-pill").forEach((btn, i) => {
-        btn.classList.toggle("active", i === idx);
-      });
+      document.querySelectorAll(".year-pill").forEach((b, idx) => b.classList.toggle("active", idx === i));
     }
 
-    TIMELINE_DATA.forEach((item, idx) => {
+    TIMELINE_DATA.forEach((item, i) => {
       const btn = document.createElement("button");
       btn.type = "button";
-      btn.className = "year-pill" + (idx === 0 ? " active" : "");
+      btn.className = "year-pill" + (i === 0 ? " active" : "");
       btn.textContent = item.year;
-      btn.addEventListener("click", () => renderTimeline(idx));
-      pillsWrap.appendChild(btn);
+      btn.addEventListener("click", () => showTimeline(i));
+      yearPills.appendChild(btn);
     });
 
     document.getElementById("prevYear").addEventListener("click", () => {
-      const next = (currentIdx - 1 + TIMELINE_DATA.length) % TIMELINE_DATA.length;
-      renderTimeline(next);
+      showTimeline((tlIndex - 1 + TIMELINE_DATA.length) % TIMELINE_DATA.length);
     });
-
     document.getElementById("nextYear").addEventListener("click", () => {
-      const next = (currentIdx + 1) % TIMELINE_DATA.length;
-      renderTimeline(next);
+      showTimeline((tlIndex + 1) % TIMELINE_DATA.length);
     });
 
-    function setRoute(type, el) {
-      document.querySelectorAll(".route-btn").forEach(b => b.classList.remove("active"));
-      el.classList.add("active");
-
-      const freedom = document.getElementById("routeFreedom");
-      const selma = document.getElementById("routeSelma");
-      const title = document.getElementById("mapTitle");
-      const desc = document.getElementById("mapDesc");
-
-      if (type === "freedom") {
-        freedom.style.opacity = "1";
-        selma.style.opacity = "0.25";
-        title.textContent = "Ruta de los Freedom Riders (1961)";
-        desc.textContent = "Activistas interraciales viajaron en autobuses interestatales desde Washington D.C. hacia Nueva Orleans para desafiar la negativa de los estados del sur a cumplir los fallos que prohibían la segregación en terminales y transportes.";
-      } else {
-        freedom.style.opacity = "0.25";
-        selma.style.opacity = "1";
-        title.textContent = "Marchas de Selma a Montgomery (1965)";
-        desc.textContent = "Tres marchas de protesta recorrieron los 87 kilómetros de la autopista 80 entre Selma y la capital de Alabama para exigir el registro libre de votantes afroamericanos.";
+    const MAP_POINTS = {
+      washington: {
+        tag: "Punto de partida · 1961",
+        city: "Washington D.C.",
+        info: "Desde aquí partieron los Freedom Riders en autobuses interestatales hacia el sur para poner a prueba el cumplimiento de las normas contra la segregación en el transporte."
+      },
+      greensboro: {
+        tag: "Carolina del Norte · 1960",
+        city: "Greensboro",
+        info: "Escenario de las célebres sentadas (sit-ins) en un mostrador segregado, que encendieron protestas estudiantiles en distintas ciudades."
+      },
+      atlanta: {
+        tag: "Georgia · Derechos civiles",
+        city: "Atlanta",
+        info: "Centro clave de coordinación, formación y organización del movimiento por los derechos civiles en el sur."
+      },
+      selma: {
+        tag: "Alabama · 1965",
+        city: "Selma",
+        info: "Punto de inicio de las marchas hacia Montgomery para reclamar el registro efectivo de votantes afroamericanos."
+      },
+      montgomery: {
+        tag: "Alabama · 1955 y 1965",
+        city: "Montgomery",
+        info: "Ciudad del boicot a los autobuses tras la detención de Rosa Parks y destino final de las marchas desde Selma."
+      },
+      orleans: {
+        tag: "Luisiana · Destino Freedom Riders",
+        city: "Nueva Orleans",
+        info: "Destino final proyectado de los recorridos de los Freedom Riders para desafiar la segregación en terminales y transportes."
       }
+    };
+
+    function selectMapPoint(key) {
+      const p = MAP_POINTS[key];
+      document.getElementById("mapTag").textContent = p.tag;
+      document.getElementById("mapCity").textContent = p.city;
+      document.getElementById("mapInfo").textContent = p.info;
     }
+
+    const MOVIES = [
+      {
+        title: "Selma",
+        meta: "2014",
+        img: "selma.jfif",
+        desc: "Retrata las marchas de 1965 encabezadas por Martin Luther King Jr. en Alabama para conquistar el derecho al voto."
+      },
+      {
+        title: "Talentos ocultos",
+        meta: "2016",
+        img: "talentos ocultos.jfif",
+        desc: "Muestra el trabajo de matemáticas afroamericanas en la NASA frente a la segregación racial y de género."
+      },
+      {
+        title: "Green Book",
+        meta: "2018",
+        img: "green book.jfif",
+        desc: "Aborda los viajes por el sur segregado en los años 60 y el uso de guías para viajeros afroamericanos."
+      },
+      {
+        title: "Historias cruzadas",
+        meta: "2011",
+        img: "historias cruzadas.jfif",
+        desc: "Expone las relaciones desiguales y el racismo cotidiano vivido por trabajadoras domésticas en Misisipi."
+      },
+      {
+        title: "Arde Mississippi",
+        meta: "1988",
+        img: "arde misisippi.jfif",
+        desc: "Aborda la violencia segregacionista y la investigación de crímenes contra activistas en Misisipi en 1964."
+      }
+    ];
+
+    let movieIdx = 0;
+    const movieImg = document.getElementById("movieImg");
+    const movieTitle = document.getElementById("movieTitle");
+    const movieMeta = document.getElementById("movieMeta");
+    const movieDesc = document.getElementById("movieDesc");
+    const movieDots = document.getElementById("movieDots");
+
+    function showMovie(i) {
+      movieIdx = i;
+      const m = MOVIES[i];
+      movieImg.src = m.img;
+      movieImg.alt = m.title;
+      movieTitle.textContent = m.title;
+      movieMeta.textContent = m.meta;
+      movieDesc.textContent = m.desc;
+      document.querySelectorAll(".cinema-dot").forEach((d, idx) => d.classList.toggle("active", idx === i));
+    }
+
+    MOVIES.forEach((m, i) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "cinema-dot" + (i === 0 ? " active" : "");
+      dot.textContent = m.title;
+      dot.addEventListener("click", () => showMovie(i));
+      movieDots.appendChild(dot);
+    });
+
+    document.getElementById("prevMovie").addEventListener("click", () => {
+      showMovie((movieIdx - 1 + MOVIES.length) % MOVIES.length);
+    });
+    document.getElementById("nextMovie").addEventListener("click", () => {
+      showMovie((movieIdx + 1) % MOVIES.length);
+    });
   </script>
 </body>
 </html>
