@@ -63,7 +63,7 @@
       align-items: center;
       gap: 0.5rem;
     }
-    .brand span {
+    .brand span.dot {
       width: 10px;
       height: 10px;
       border-radius: 50%;
@@ -83,10 +83,38 @@
     }
     nav a:hover { color: var(--accent); }
 
+    /* TACHADO ROJO EN "IGUALES" */
+    .strike-red {
+      position: relative;
+      display: inline-block;
+      color: var(--ink);
+    }
+    .strike-red::after {
+      content: "";
+      position: absolute;
+      left: -3px;
+      right: -3px;
+      top: 54%;
+      height: 5px;
+      background: #c81e2b;
+      border-radius: 3px;
+      transform: rotate(-2.5deg);
+      pointer-events: none;
+    }
+    .brand .strike-red::after {
+      height: 2.5px;
+      top: 53%;
+    }
+
+    /* HERO CON CARRUSEL AUTOMÁTICO */
     .hero {
       max-width: 1140px;
       margin: 0 auto;
-      padding: 3.5rem 1.25rem 2.2rem;
+      padding: 3.4rem 1.25rem 2.4rem;
+      display: grid;
+      grid-template-columns: 1.12fr 1fr;
+      gap: 2.2rem;
+      align-items: center;
     }
     .eyebrow {
       display: inline-block;
@@ -101,21 +129,26 @@
       margin-bottom: 0.9rem;
     }
     .hero h1 {
-      font-size: clamp(2.3rem, 4.5vw, 3.5rem);
+      font-size: clamp(2.4rem, 4.6vw, 3.65rem);
       line-height: 1.08;
-      margin-bottom: 0.9rem;
+      margin-bottom: 1rem;
     }
     .hero p {
-      font-size: 1.05rem;
+      font-size: 1.04rem;
       color: var(--ink-muted);
-      max-width: 64ch;
-      margin-bottom: 1.5rem;
+      max-width: 56ch;
+      margin-bottom: 1.6rem;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
     }
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 0.45rem;
-      padding: 0.7rem 1.2rem;
+      padding: 0.72rem 1.25rem;
       border-radius: 10px;
       font-weight: 600;
       font-size: 0.9rem;
@@ -133,6 +166,90 @@
       border-color: var(--accent);
     }
     .btn-primary:hover { background: #5c1321; color: #fff; }
+
+    /* SLIDER DE ARCHIVO DE ÉPOCA (5 SEGUNDOS) */
+    .archive-slider {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+      box-shadow: var(--shadow);
+    }
+    .archive-viewport {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+      border-radius: 10px;
+      background: #dfe6ee;
+    }
+    .archive-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.65s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .archive-slide {
+      min-width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    .archive-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .archive-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(19, 34, 56, 0.72);
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+    .archive-btn:hover { background: var(--accent); }
+    .archive-btn.prev { left: 10px; }
+    .archive-btn.next { right: 10px; }
+
+    .archive-footer {
+      margin-top: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    .archive-caption {
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+    }
+    .archive-dots {
+      display: flex;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+    .archive-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: none;
+      background: #cbd5e1;
+      cursor: pointer;
+      padding: 0;
+    }
+    .archive-dot.active {
+      background: var(--accent);
+      width: 18px;
+      border-radius: 999px;
+    }
 
     section {
       max-width: 1140px;
@@ -475,7 +592,7 @@
     footer strong { color: var(--ink); }
 
     @media (max-width: 820px) {
-      .timeline-stage, .map-card, .cinema-slide { grid-template-columns: 1fr; }
+      .hero, .timeline-stage, .map-card, .cinema-slide { grid-template-columns: 1fr; }
       .cinema-slide img { height: 310px; }
     }
   </style>
@@ -484,11 +601,11 @@
 
   <header>
     <div class="nav-wrap">
-      <a href="#inicio" class="brand"><span></span> Separados pero iguales</a>
+      <a href="#inicio" class="brand"><span class="dot"></span> Separados pero <span class="strike-red">iguales</span></a>
       <nav>
-        <a href="#margenes">Márgenes</a>
+        <a href="#margenes">Contexto y márgenes</a>
         <a href="#linea-tiempo">Línea del tiempo</a>
-        <a href="#mapa">Mapa</a>
+        <a href="#mapa">Mapa del Sur</a>
         <a href="#voces">Voces</a>
         <a href="#cine">Cine</a>
       </nav>
@@ -497,12 +614,49 @@
 
   <main id="inicio">
     <section class="hero">
-      <span class="eyebrow">Estados Unidos · Siglo XX</span>
-      <h1>Separados pero iguales</h1>
-      <p>
-        Recorrido por la segregación racial en Estados Unidos, las luchas por los derechos civiles, las rutas del sur, las voces del movimiento y su representación en el cine.
-      </p>
-      <a href="#linea-tiempo" class="btn btn-primary">Ir a la línea del tiempo</a>
+      <div>
+        <span class="eyebrow">Estados Unidos · Décadas de 1950 y 1960</span>
+        <h1>Separados pero <span class="strike-red">iguales</span></h1>
+        <p>
+          De las leyes Jim Crow en el sur estadounidense a la organización colectiva por los derechos civiles y el Poder Negro: un recorrido visual e interactivo por los hechos, las rutas y las voces que enfrentaron la segregación racial.
+        </p>
+        <div class="hero-actions">
+          <a href="#linea-tiempo" class="btn btn-primary">Explorar línea del tiempo</a>
+          <a href="#voces" class="btn">Leer las voces del movimiento</a>
+        </div>
+      </div>
+
+      <!-- CARRUSEL INTERACTIVO DE ARCHIVO DE ÉPOCA (5 SEGUNDOS) -->
+      <div class="archive-slider" aria-label="Archivo fotográfico de la época">
+        <div class="archive-viewport">
+          <div class="archive-track" id="archiveTrack">
+            <div class="archive-slide">
+              <img src="images.jfif" alt="Sala de espera segregada (Colored Waiting Room)" />
+            </div>
+            <div class="archive-slide">
+              <img src="bebederos.jpg" alt="Bebederos separados: White y Colored" />
+            </div>
+            <div class="archive-slide">
+              <img src="espera.jpg" alt="Familia afroamericana bajo el cartel Negro Waiting Room" />
+            </div>
+            <div class="archive-slide">
+              <img src="teatro.jpg" alt="Rex Theatre for Colored People" />
+            </div>
+            <div class="archive-slide">
+              <img src="escuelas.jpg" alt="Fallo judicial contra la segregación en escuelas públicas" />
+            </div>
+            <div class="archive-slide">
+              <img src="ella-marilyn.jpg" alt="Ella Fitzgerald y Marilyn Monroe" />
+            </div>
+          </div>
+          <button type="button" class="archive-btn prev" id="archivePrev" aria-label="Foto anterior">‹</button>
+          <button type="button" class="archive-btn next" id="archiveNext" aria-label="Foto siguiente">›</button>
+        </div>
+        <div class="archive-footer">
+          <div class="archive-caption" id="archiveCaption">Cartel de sala de espera segregada bajo las leyes Jim Crow.</div>
+          <div class="archive-dots" id="archiveDots"></div>
+        </div>
+      </div>
     </section>
 
     <!-- MÁRGENES CON FOTOS EN CUADRADITOS -->
@@ -621,43 +775,34 @@
         <div class="map-canvas">
           <svg viewBox="0 0 540 340" width="100%" height="auto" role="img" aria-label="Mapa interactivo del sur de Estados Unidos">
             <rect x="8" y="8" width="524" height="324" rx="12" fill="#dfe8f1" />
-            <!-- Silueta del sur de EE. UU. -->
             <path d="M55,68 L475,58 L492,155 L428,275 L295,280 L215,305 L135,260 L68,185 Z" fill="#ffffff" stroke="#b5c5d6" stroke-width="2.5" />
-
-            <!-- Recorrido Freedom Riders -->
             <polyline points="445,84 388,138 320,178 242,205 278,205 205,248" fill="none" stroke="#7a1c2e" stroke-width="3.5" stroke-dasharray="7 5" />
 
-            <!-- Punto 1: Washington D.C. -->
             <g class="map-point" onclick="selectMapPoint('washington')">
               <circle cx="445" cy="84" r="7" fill="#132238" />
               <text x="368" y="75" font-size="12" font-weight="700" fill="#132238">Washington D.C.</text>
             </g>
 
-            <!-- Punto 2: Greensboro -->
             <g class="map-point" onclick="selectMapPoint('greensboro')">
               <circle cx="388" cy="138" r="7" fill="#132238" />
               <text x="398" y="142" font-size="12" font-weight="700" fill="#132238">Greensboro</text>
             </g>
 
-            <!-- Punto 3: Atlanta -->
             <g class="map-point" onclick="selectMapPoint('atlanta')">
               <circle cx="320" cy="178" r="7" fill="#132238" />
               <text x="330" y="182" font-size="12" font-weight="700" fill="#132238">Atlanta</text>
             </g>
 
-            <!-- Punto 4: Selma -->
             <g class="map-point" onclick="selectMapPoint('selma')">
               <circle cx="242" cy="205" r="7" fill="#132238" />
               <text x="196" y="196" font-size="12" font-weight="700" fill="#132238">Selma</text>
             </g>
 
-            <!-- Punto 5: Montgomery -->
             <g class="map-point" onclick="selectMapPoint('montgomery')">
               <circle cx="278" cy="205" r="7" fill="#132238" />
               <text x="286" y="220" font-size="12" font-weight="700" fill="#132238">Montgomery</text>
             </g>
 
-            <!-- Punto 6: Nueva Orleans -->
             <g class="map-point" onclick="selectMapPoint('orleans')">
               <circle cx="205" cy="248" r="7" fill="#132238" />
               <text x="115" y="264" font-size="12" font-weight="700" fill="#132238">Nueva Orleans</text>
@@ -775,6 +920,57 @@
   </footer>
 
   <script>
+    /* CARRUSEL AUTOMÁTICO DE ARCHIVO DE ÉPOCA (5 SEGUNDOS) */
+    const ARCHIVE_CAPTIONS = [
+      "Cartel de sala de espera segregada bajo las leyes Jim Crow.",
+      "Bebederos públicos separados para personas blancas y afroamericanas.",
+      "Sala de espera separada en estación de transporte del sur.",
+      "Cine exclusivo para población afroamericana (Rex Theatre).",
+      "Titulares de prensa tras el fallo judicial contra la segregación escolar.",
+      "Ella Fitzgerald y Marilyn Monroe: solidaridad frente a las barreras raciales en clubes nocturnos."
+    ];
+
+    let archiveIdx = 0;
+    const archiveTrack = document.getElementById("archiveTrack");
+    const archiveCaption = document.getElementById("archiveCaption");
+    const archiveDots = document.getElementById("archiveDots");
+    const totalArchive = ARCHIVE_CAPTIONS.length;
+
+    function goArchive(idx) {
+      archiveIdx = (idx + totalArchive) % totalArchive;
+      archiveTrack.style.transform = `translateX(-${archiveIdx * 100}%)`;
+      archiveCaption.textContent = ARCHIVE_CAPTIONS[archiveIdx];
+      document.querySelectorAll(".archive-dot").forEach((d, i) => d.classList.toggle("active", i === archiveIdx));
+    }
+
+    ARCHIVE_CAPTIONS.forEach((_, i) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "archive-dot" + (i === 0 ? " active" : "");
+      dot.setAttribute("aria-label", `Imagen ${i + 1}`);
+      dot.addEventListener("click", () => {
+        goArchive(i);
+        resetArchiveTimer();
+      });
+      archiveDots.appendChild(dot);
+    });
+
+    document.getElementById("archivePrev").addEventListener("click", () => {
+      goArchive(archiveIdx - 1);
+      resetArchiveTimer();
+    });
+    document.getElementById("archiveNext").addEventListener("click", () => {
+      goArchive(archiveIdx + 1);
+      resetArchiveTimer();
+    });
+
+    let archiveTimer = setInterval(() => goArchive(archiveIdx + 1), 5000);
+    function resetArchiveTimer() {
+      clearInterval(archiveTimer);
+      archiveTimer = setInterval(() => goArchive(archiveIdx + 1), 5000);
+    }
+
+    /* LÍNEA DEL TIEMPO */
     const TIMELINE_DATA = [
       {
         year: "1954",
@@ -884,6 +1080,7 @@
       showTimeline((tlIndex + 1) % TIMELINE_DATA.length);
     });
 
+    /* MAPA INTERACTIVO */
     const MAP_POINTS = {
       washington: {
         tag: "Punto de partida · 1961",
@@ -924,6 +1121,7 @@
       document.getElementById("mapInfo").textContent = p.info;
     }
 
+    /* CINE */
     const MOVIES = [
       {
         title: "Selma",
