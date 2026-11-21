@@ -518,4 +518,440 @@
           De las leyes Jim Crow en el sur estadounidense a la organización colectiva por los derechos civiles y el Poder Negro: un recorrido visual e interactivo por los hechos, las rutas y las voces que enfrentaron la segregación racial.
         </p>
         <div class="hero-actions">
-          <a href="#linea-
+          <a href="#linea-tiempo" class="btn btn-primary">Explorar línea del tiempo</a>
+          <a href="#voces" class="btn btn-outline">Leer las voces del movimiento</a>
+        </div>
+      </div>
+
+      <figure class="hero-card">
+        <img src="images.jfif" alt="Segregación racial en espacios públicos de Estados Unidos" />
+        <figcaption>
+          La doctrina <em>«Separados pero iguales»</em> (Plessy vs. Ferguson, 1896) legitimó durante décadas la división racial en escuelas, transporte, comercios y espacios públicos.
+        </figcaption>
+      </figure>
+    </div>
+
+    <!-- CONTEXTO Y MÁRGENES PLEGABLES -->
+    <section id="contexto">
+      <div class="section-head">
+        <span class="kicker">Contexto histórico · Márgenes desplegables</span>
+        <h2>Cuatro ejes para entender el conflicto</h2>
+        <p>Abrí cada margen desplegable para profundizar en cómo funcionaba la segregación cotidiana y cómo se organizó la respuesta.</p>
+      </div>
+
+      <div class="context-grid">
+        <article class="fold-card">
+          <img src="images.jfif" alt="Segregación racial y leyes Jim Crow" />
+          <div class="fold-body">
+            <span class="fold-tag">Eje 01 · Segregación racial</span>
+            <h3>Leyes Jim Crow</h3>
+            <p>Normativas estatales y locales en el sur de EE. UU. que imponían instalaciones separadas y desiguales para personas blancas y afroamericanas.</p>
+            <details class="margin-detail">
+              <summary>+ Abrir nota al margen</summary>
+              <p>Además de separar escuelas, hospitales y bebederos, el sistema restringía el derecho al voto mediante impuestos electorales y pruebas arbitrarias de alfabetización.</p>
+            </details>
+          </div>
+        </article>
+
+        <article class="fold-card">
+          <img src="rosa parks.jfif" alt="Rosa Parks y el boicot al transporte en Montgomery" />
+          <div class="fold-body">
+            <span class="fold-tag">Eje 02 · El transporte</span>
+            <h3>El colectivo y el boicot</h3>
+            <p>En diciembre de 1955, Rosa Parks se negó a ceder su asiento en Montgomery, Alabama, encendiendo un boicot de 381 días contra los autobuses segregados.</p>
+            <details class="margin-detail">
+              <summary>+ Abrir nota al margen</summary>
+              <p>La comunidad afroamericana organizó redes propias de autos compartidos y caminatas diarias hasta que la Corte Suprema declaró inconstitucional la segregación en el transporte público.</p>
+            </details>
+          </div>
+        </article>
+
+        <article class="fold-card">
+          <img src="eca83564-a3ca-4a89-b2d5-de64b5e45081.jfif" alt="El movimiento por los derechos civiles y Martin Luther King Jr." />
+          <div class="fold-body">
+            <span class="fold-tag">Eje 03 · El movimiento</span>
+            <h3>Acción directa y organización</h3>
+            <p>Bajo el liderazgo de figuras como Martin Luther King Jr. y miles de activistas de base, las marchas pacíficas expusieron ante el mundo la violencia estatal.</p>
+            <details class="margin-detail">
+              <summary>+ Abrir nota al margen</summary>
+              <p>La estrategia combinó desobediencia civil no violenta, litigios judiciales y presión mediática para lograr las leyes federales de 1964 y 1965.</p>
+            </details>
+          </div>
+        </article>
+
+        <article class="fold-card">
+          <img src="blm.jfif" alt="Continuidad histórica hasta Black Lives Matter" />
+          <div class="fold-body">
+            <span class="fold-tag">Eje 04 · La lucha inacabada</span>
+            <h3>De los años 60 a Black Lives Matter</h3>
+            <p>Aunque cayeron las leyes Jim Crow, la desigualdad estructural y la violencia institucional mantuvieron vigente el reclamo por justicia racial.</p>
+            <details class="margin-detail">
+              <summary>+ Abrir nota al margen</summary>
+              <p>Movimientos contemporáneos como Black Lives Matter retoman las consignas históricas de dignidad, derechos civiles y fin del racismo sistémico.</p>
+            </details>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- LÍNEA DEL TIEMPO INTERACTIVA -->
+    <section id="linea-tiempo">
+      <div class="section-head">
+        <span class="kicker">Cronología interactiva</span>
+        <h2>Línea del tiempo (1954 – ¿Fin?)</h2>
+        <p>Seleccioná un año o hito para recorrer los momentos clave del proceso histórico.</p>
+      </div>
+
+      <div class="timeline-shell">
+        <div class="year-pills" id="yearPills"></div>
+
+        <div class="timeline-stage">
+          <div class="timeline-img-box">
+            <img id="tlImg" src="1954.jfif" alt="Hito histórico" />
+          </div>
+          <div class="timeline-info">
+            <div class="t-year" id="tlYear">1954</div>
+            <h3 id="tlTitle">Caso Brown vs. Board of Education</h3>
+            <p id="tlDesc">La Corte Suprema de Estados Unidos declara por unanimidad que la segregación racial en las escuelas públicas es inconstitucional, derribando el principio de «separados pero iguales» en la educación.</p>
+            <div class="timeline-nav">
+              <button class="btn btn-outline" id="prevYear" type="button">← Anterior</button>
+              <button class="btn btn-primary" id="nextYear" type="button">Siguiente →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAPA DEL SUR -->
+    <section id="mapa">
+      <div class="section-head">
+        <span class="kicker">Geografía de la resistencia</span>
+        <h2>Mapa interactivo del Sur</h2>
+        <p>Explorá los recorridos clave de los Freedom Riders y la marcha de Selma a Montgomery.</p>
+      </div>
+
+      <div class="map-box">
+        <div class="map-svg-wrap">
+          <svg viewBox="0 0 520 320" width="100%" height="auto" aria-label="Mapa esquemático del sur de Estados Unidos">
+            <rect x="10" y="10" width="500" height="300" rx="12" fill="#dce5ef" />
+            <!-- Contorno estilizado estados del sur -->
+            <path d="M70,70 L430,60 L450,150 L390,260 L260,265 L190,285 L120,245 L75,180 Z" fill="#ffffff" stroke="#b8c6d6" stroke-width="2" />
+            <!-- Ruta Freedom Riders -->
+            <path id="routeFreedom" d="M415,82 L365,135 L305,175 L255,205 L195,235" fill="none" stroke="#7a1c2e" stroke-width="4" stroke-dasharray="7 5" />
+            <!-- Ruta Selma - Montgomery -->
+            <path id="routeSelma" d="M242,202 L272,202" fill="none" stroke="#132238" stroke-width="6" opacity="0.25" />
+
+            <!-- Puntos -->
+            <circle cx="415" cy="82" r="6" fill="#7a1c2e" />
+            <text x="355" y="74" font-size="11" font-weight="700" fill="#132238">Washington D.C.</text>
+
+            <circle cx="365" cy="135" r="6" fill="#7a1c2e" />
+            <text x="374" y="139" font-size="11" fill="#132238">Greensboro</text>
+
+            <circle cx="305" cy="175" r="6" fill="#7a1c2e" />
+            <text x="314" y="179" font-size="11" fill="#132238">Atlanta</text>
+
+            <circle cx="242" cy="202" r="6" fill="#132238" />
+            <text x="195" y="196" font-size="11" font-weight="700" fill="#132238">Selma</text>
+
+            <circle cx="272" cy="202" r="6" fill="#7a1c2e" />
+            <text x="278" y="216" font-size="11" font-weight="700" fill="#132238">Montgomery</text>
+
+            <circle cx="195" cy="235" r="6" fill="#7a1c2e" />
+            <text x="120" y="252" font-size="11" font-weight="700" fill="#132238">Nueva Orleans</text>
+          </svg>
+        </div>
+
+        <div>
+          <h3 id="mapTitle" class="serif" style="font-size:1.5rem; margin-bottom:0.5rem;">Ruta de los Freedom Riders (1961)</h3>
+          <p id="mapDesc" style="color:var(--ink-muted); font-size:0.95rem;">
+            Activistas interraciales viajaron en autobuses interestatales desde Washington D.C. hacia Nueva Orleans para desafiar la negativa de los estados del sur a cumplir los fallos que prohibían la segregación en terminales y transportes.
+          </p>
+
+          <div class="route-btns">
+            <button type="button" class="route-btn active" onclick="setRoute('freedom', this)">
+              <strong>1. Viajeros de la Libertad (Freedom Riders, 1961)</strong>
+              <span>Washington D.C. → Greensboro → Atlanta → Montgomery → Nueva Orleans</span>
+            </button>
+            <button type="button" class="route-btn" onclick="setRoute('selma', this)">
+              <strong>2. Marchas de Selma a Montgomery (1965)</strong>
+              <span>87 kilómetros en Alabama por el derecho efectivo al voto</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VOCES DEL MOVIMIENTO -->
+    <section id="voces">
+      <div class="section-head">
+        <span class="kicker">Pensamiento y debate político</span>
+        <h2>Voces del movimiento y del Poder Negro</h2>
+        <p>Cuatro perspectivas fundamentales sobre la lucha contra el racismo, la autodefensa y la emancipación negra.</p>
+      </div>
+
+      <div class="voices-grid">
+        <article class="voice-card">
+          <img src="martin.jfif" alt="Martin Luther King Jr." />
+          <div class="voice-content">
+            <h3>Martin Luther King Jr.</h3>
+            <div class="voice-role">Resistencia no violenta e integración</div>
+            <blockquote class="voice-quote">
+              «La injusticia en cualquier lugar es una amenaza para la justicia en todas partes.»
+            </blockquote>
+            <div class="voice-source">Carta desde la cárcel de Birmingham (1963)</div>
+          </div>
+        </article>
+
+        <article class="voice-card">
+          <img src="malcon x.jfif" alt="Malcolm X" />
+          <div class="voice-content">
+            <h3>Malcolm X</h3>
+            <div class="voice-role">Autodeterminación y dignidad negra</div>
+            <blockquote class="voice-quote">
+              «No se puede separar la paz de la libertad, porque nadie puede estar en paz si no tiene su libertad.»
+            </blockquote>
+            <div class="voice-source">Textos sobre el poder negro · Ediciones Halcón (1968)</div>
+          </div>
+        </article>
+
+        <article class="voice-card">
+          <img src="carmichael.jfif" alt="Stokely Carmichael" />
+          <div class="voice-content">
+            <h3>Stokely Carmichael</h3>
+            <div class="voice-role">Poder Negro (Black Power)</div>
+            <blockquote class="voice-quote">
+              «El Poder Negro significa que los negros se unan para formar una fuerza política y elegir representantes que respondan a sus necesidades.»
+            </blockquote>
+            <div class="voice-source">Textos sobre el poder negro · Ediciones Halcón (1968)</div>
+          </div>
+        </article>
+
+        <article class="voice-card">
+          <img src="rap brown.jfif" alt="H. Rap Brown" />
+          <div class="voice-content">
+            <h3>H. Rap Brown</h3>
+            <div class="voice-role">Militancia radical y denuncia estructural</div>
+            <blockquote class="voice-quote">
+              «No pedimos permiso para ser libres; exigimos el fin de un sistema construido sobre nuestra opresión.»
+            </blockquote>
+            <div class="voice-source">Textos sobre el poder negro · Ediciones Halcón (1968)</div>
+          </div>
+        </article>
+      </div>
+
+      <div class="hymn-banner">
+        <div>
+          <h3>Himno del movimiento: <em>We Shall Overcome</em></h3>
+          <p>
+            Canto colectivo surgido de la tradición gospel y obrera que acompañó marchas, sentadas y vigilias durante las décadas de 1950 y 1960 como símbolo de unidad y perseverancia.
+          </p>
+        </div>
+        <div class="hymn-links">
+          <a class="btn btn-light" href="https://www.youtube.com/results?search_query=We+Shall+Overcome+Civil+Rights+Movement" target="_blank" rel="noopener">Escuchar en YouTube ↗</a>
+          <a class="btn btn-outline" style="color:#fff; border-color:rgba(255,255,255,0.35); background:transparent;" href="https://www.youtube.com/results?search_query=I+Have+a+Dream+Martin+Luther+King+1963" target="_blank" rel="noopener">Discurso 1963 ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERÍA DE CINE -->
+    <section id="cine">
+      <div class="section-head">
+        <span class="kicker">Memoria audiovisual</span>
+        <h2>El período en el cine</h2>
+        <p>Cinco películas que retratan las luchas legales, cotidianas y políticas contra la segregación racial.</p>
+      </div>
+
+      <div class="movies-grid">
+        <article class="movie-card">
+          <img src="selma.jfif" alt="Póster de Selma" />
+          <div class="movie-body">
+            <span class="movie-year">2014 · Dir. Ava DuVernay</span>
+            <h3>Selma</h3>
+            <p>Reconstruye las marchas de 1965 encabezadas por Martin Luther King Jr. en Alabama para conquistar la Ley del Derecho al Voto.</p>
+          </div>
+        </article>
+
+        <article class="movie-card">
+          <img src="talentos ocultos.jfif" alt="Póster de Talentos ocultos" />
+          <div class="movie-body">
+            <span class="movie-year">2016 · Dir. Theodore Melfi</span>
+            <h3>Talentos ocultos</h3>
+            <p>La historia de las matemáticas afroamericanas de la NASA que enfrentaron la segregación laboral y de género durante la carrera espacial.</p>
+          </div>
+        </article>
+
+        <article class="movie-card">
+          <img src="green book.jfif" alt="Póster de Green Book" />
+          <div class="movie-body">
+            <span class="movie-year">2018 · Dir. Peter Farrelly</span>
+            <h3>Green Book</h3>
+            <p>Gira musical por el sur segregado en 1962 guiada por el libro que indicaba qué hoteles y restaurantes aceptaban viajeros negros.</p>
+          </div>
+        </article>
+
+        <article class="movie-card">
+          <img src="historias cruzadas.jfif" alt="Póster de Historias cruzadas" />
+          <div class="movie-body">
+            <span class="movie-year">2011 · Dir. Tate Taylor</span>
+            <h3>Historias cruzadas</h3>
+            <p>Ambientada en Jackson, Misisipi (1963), expone el racismo cotidiano que sufrían las trabajadoras domésticas afroamericanas.</p>
+          </div>
+        </article>
+
+        <article class="movie-card">
+          <img src="arde misisippi.jfif" alt="Póster de Arde Mississippi" />
+          <div class="movie-body">
+            <span class="movie-year">1988 · Dir. Alan Parker</span>
+            <h3>Arde Mississippi</h3>
+            <p>Inspirada en la investigación del asesinato de tres activistas por los derechos civiles en Misisipi durante el verano de 1964.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Proyecto de Historia · Segregación racial en Estados Unidos (1950–1969)
+  </footer>
+
+  <script>
+    const TIMELINE_DATA = [
+      {
+        year: "1954",
+        title: "Brown vs. Board of Education",
+        desc: "La Corte Suprema falla por unanimidad que las escuelas segregadas son inherentemente desiguales e inconstitucionales.",
+        img: "1954.jfif"
+      },
+      {
+        year: "1955",
+        title: "Boicot de autobuses de Montgomery",
+        desc: "Tras la detención de Rosa Parks, la población afroamericana de Montgomery sostiene un boicot masivo al transporte durante más de un año.",
+        img: "1955.jfif"
+      },
+      {
+        year: "1956",
+        title: "Fin de la segregación en el transporte de Montgomery",
+        desc: "La Corte Suprema ratifica la inconstitucionalidad de la segregación en los autobuses urbanos tras 381 días de protesta organizada.",
+        img: "1956.jfif"
+      },
+      {
+        year: "1957",
+        title: "Los Nueve de Little Rock",
+        desc: "Nueve estudiantes afroamericanos ingresan a la escuela secundaria Central High en Arkansas escoltados por tropas federales ante la hostilidad segregacionista.",
+        img: "1957.jpg"
+      },
+      {
+        year: "1960 · Greensboro",
+        title: "Sentadas en Greensboro (Sit-ins)",
+        desc: "Cuatro estudiantes universitarios negros se sientan en el mostrador segregado de Woolworth en Carolina del Norte, iniciando una ola de protestas pacíficas en todo el sur.",
+        img: "greensboro-sit-in.avif"
+      },
+      {
+        year: "1961",
+        title: "Viajeros de la Libertad (Freedom Riders)",
+        desc: "Activistas blancos y negros recorren el sur en autobuses interestatales para exigir el cumplimiento efectivo de la desegregación en el transporte.",
+        img: "1961.jfif"
+      },
+      {
+        year: "1963",
+        title: "Marcha sobre Washington",
+        desc: "Más de 250.000 personas se reúnen frente al Monumento a Lincoln por el trabajo y la libertad; Martin Luther King Jr. pronuncia «Tengo un sueño».",
+        img: "1963.jfif"
+      },
+      {
+        year: "1964",
+        title: "Ley de Derechos Civiles",
+        desc: "Se prohíbe legalmente la discriminación por raza, color, religión, sexo u origen nacional en lugares públicos y empleos.",
+        img: "1964.jfif"
+      },
+      {
+        year: "1965",
+        title: "Selma y Ley del Derecho al Voto",
+        desc: "Tras la represión en el puente Edmund Pettus, la marcha a Montgomery impulsa la ley federal que elimina las trabas al voto afroamericano.",
+        img: "images 1965.jfif"
+      },
+      {
+        year: "1966",
+        title: "Auge del Poder Negro (Black Power)",
+        desc: "Stokely Carmichael populariza la consigna del Poder Negro y nace el Partido Pantera Negra en Oakland, enfocándose en autodefensa y control comunitario.",
+        img: "1966.jfif"
+      },
+      {
+        year: "1968",
+        title: "Asesinato de Martin Luther King Jr. y Ley de Vivienda Justa",
+        desc: "El asesinato de King en Memphis provoca protestas en todo el país y acelera la aprobación de la ley contra la discriminación en la vivienda.",
+        img: "1968.jfif"
+      },
+      {
+        year: "¿Fin?",
+        title: "La lucha inacabada",
+        desc: "El fin legal de Jim Crow cerró una etapa jurídica, pero la desigualdad socioeconómica y el racismo institucional prolongaron el debate hasta el presente.",
+        img: "fin.jfif"
+      }
+    ];
+
+    let currentIdx = 0;
+    const pillsWrap = document.getElementById("yearPills");
+    const tlImg = document.getElementById("tlImg");
+    const tlYear = document.getElementById("tlYear");
+    const tlTitle = document.getElementById("tlTitle");
+    const tlDesc = document.getElementById("tlDesc");
+
+    function renderTimeline(idx) {
+      currentIdx = idx;
+      const item = TIMELINE_DATA[idx];
+      tlImg.src = item.img;
+      tlImg.alt = item.title;
+      tlYear.textContent = item.year;
+      tlTitle.textContent = item.title;
+      tlDesc.textContent = item.desc;
+
+      document.querySelectorAll(".year-pill").forEach((btn, i) => {
+        btn.classList.toggle("active", i === idx);
+      });
+    }
+
+    TIMELINE_DATA.forEach((item, idx) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "year-pill" + (idx === 0 ? " active" : "");
+      btn.textContent = item.year;
+      btn.addEventListener("click", () => renderTimeline(idx));
+      pillsWrap.appendChild(btn);
+    });
+
+    document.getElementById("prevYear").addEventListener("click", () => {
+      const next = (currentIdx - 1 + TIMELINE_DATA.length) % TIMELINE_DATA.length;
+      renderTimeline(next);
+    });
+
+    document.getElementById("nextYear").addEventListener("click", () => {
+      const next = (currentIdx + 1) % TIMELINE_DATA.length;
+      renderTimeline(next);
+    });
+
+    function setRoute(type, el) {
+      document.querySelectorAll(".route-btn").forEach(b => b.classList.remove("active"));
+      el.classList.add("active");
+
+      const freedom = document.getElementById("routeFreedom");
+      const selma = document.getElementById("routeSelma");
+      const title = document.getElementById("mapTitle");
+      const desc = document.getElementById("mapDesc");
+
+      if (type === "freedom") {
+        freedom.style.opacity = "1";
+        selma.style.opacity = "0.25";
+        title.textContent = "Ruta de los Freedom Riders (1961)";
+        desc.textContent = "Activistas interraciales viajaron en autobuses interestatales desde Washington D.C. hacia Nueva Orleans para desafiar la negativa de los estados del sur a cumplir los fallos que prohibían la segregación en terminales y transportes.";
+      } else {
+        freedom.style.opacity = "0.25";
+        selma.style.opacity = "1";
+        title.textContent = "Marchas de Selma a Montgomery (1965)";
+        desc.textContent = "Tres marchas de protesta recorrieron los 87 kilómetros de la autopista 80 entre Selma y la capital de Alabama para exigir el registro libre de votantes afroamericanos.";
+      }
+    }
+  </script>
+</body>
+</html>
